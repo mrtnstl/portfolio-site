@@ -1,0 +1,99 @@
+{
+    "lang": "en",
+    "htmlHead": {
+        "lang": "en",
+        "title": "personal"
+    },
+    "hero": {
+        "name": "John Doe",
+        "title": "Rice expert",
+        "tagLine": "",
+        "cta": "contact me"
+    },
+    "projects": {
+        "sectionTitle": "Projects",
+        "projects": [
+            {
+                "name": "project name",
+                "description": "what is does / what problem it solves",
+                "stack": [
+                    {
+                        "name": "Nodejs",
+                        "icon": ""
+                    },
+                    {
+                        "name": "Typescript",
+                        "icon": ""
+                    },
+                    {
+                        "name": "React",
+                        "icon": ""
+                    }
+                ],
+                "link": "link:/to.site",
+                "github": "link:/to.repo",
+                "pictures": [
+                    "pic1.png",
+                    "pic2.png",
+                    "pic3.png"
+                ]
+            },
+            {
+                "name": "project name",
+                "description": "what is does / what problem it solves",
+                "stack": [
+                    {
+                        "name": "Nodejs",
+                        "icon": ""
+                    },
+                    {
+                        "name": "Typescript",
+                        "icon": ""
+                    },
+                    {
+                        "name": "React",
+                        "icon": ""
+                    }
+                ],
+                "link": "link:/to.site",
+                "github": "link:/to.repo",
+                "pictures": [
+                    "pic1.png",
+                    "pic2.png",
+                    "pic3.png"
+                ]
+            },
+            {
+                "name": "project name",
+                "description": "what is does / what problem it solves",
+                "stack": [
+                    {
+                        "name": "Nodejs",
+                        "icon": ""
+                    },
+                    {
+                        "name": "Typescript",
+                        "icon": ""
+                    },
+                    {
+                        "name": "React",
+                        "icon": ""
+                    }
+                ],
+                "link": "link:/to.site",
+                "github": "link:/to.repo",
+                "pictures": [
+                    "pic1.png",
+                    "pic2.png",
+                    "pic3.png"
+                ]
+            }
+        ]
+    },
+    "aboutAndContact": {
+        "sectionTitle": "About and Contact"
+    },
+    "footer": {},
+    "notFound": {},
+    "error": {}
+}

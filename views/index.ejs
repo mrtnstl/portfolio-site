@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="<%= htmlHead.lang %>">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>
+        <%= htmlHead.title %>
+    </title>
+
+</head>
+
+<body>
+    <main>
+        <!--<header> </header>-->
+        <section id="hero">
+            <h1>
+                <%= hero.name %>
+            </h1>
+            <h2>
+                <%= hero.title %>
+            </h2>
+            <button>
+                <%= hero.cta %>
+            </button>
+        </section>
+        <section id="projects">
+            <h2>
+                <%= projects.sectionTitle %>
+            </h2>
+            <div id="project__cards-warpper">
+                <% projects.projects.forEach(project=>{ %>
+                    <div class="project__card">
+                        <h3>
+                            <%= project.name %>
+                        </h3>
+                        <p>
+                            <%= project.description %>
+                        </p>
+                        <div>
+                            <% project.pictures.forEach(picture=>{ %>
+                                <span>
+                                    <%= picture %>
+                                </span>
+                                <% }) %>
+                        </div>
+                        <div>
+                            <% project.stack.forEach(item=>{ %>
+                                <p class="card__item">
+                                    <%= item.name %>
+                                </p>
+                                <% }) %>
+                        </div>
+                        <a href="<%= project.link %>">
+                            <%= project.link %>
+                        </a>
+                        <br>
+                        <a href="<%= project.github %>">
+                            <%= project.github %>
+                        </a>
+                    </div>
+                    <% }) %>
+            </div>
+        </section>
+        <section id="about">
+            <h2 id="about__title">
+                <%= aboutAndContact.sectionTitle %>
+            </h2>
+            <div id="about__body">
+                <ul>
+                    <li>HTML, CSS</li>
+                    <li>JavaScript</li>
+                    <li>TypeScript</li>
+                    <li>Nodejs</li>
+                    <li>Express</li>
+                    <li>React</li>
+                    <li>Figma</li>
+                </ul>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus numquam, ipsam tenetur voluptas
+                    voluptatem quod quae ducimus laudantium labore pariatur minima eius sunt magni, deserunt asperiores
+                    unde
+                    delectus commodi quos?
+                </p>
+            </div>
+        </section>
+        <footer>
+            <p>footer</p>
+        </footer>
+    </main>
+    <script>
+        const body = document.getElementsByTagName("body")[0];
+        window.addEventListener("load", setGrayscale);
+        function setGrayscale() {
+            setTimeout(() => { body.style.filter = "grayscale(0)"; }, 0); // 1300
+        }
+    </script>
+</body>
+
+</html>

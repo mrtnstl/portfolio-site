@@ -1,0 +1,97 @@
+{
+    "lang": "hu",
+    "htmlHead": {
+        "lang": "hu",
+        "title": "stemélyes"
+    },
+    "hero": {
+        "name": "Doe John",
+        "title": "Rízs szakértő",
+        "tagLine": "",
+        "cta": "vedd fel a kapcs."
+    },
+    "projects": {
+        "sectionTitle": "Projektek",
+        "projects": [
+            {
+                "name": "projekt neve",
+                "description": "mire jó / milyen problémakört old meg",
+                "stack": [
+                    {
+                        "name": "Nodejs",
+                        "icon": ""
+                    },
+                    {
+                        "name": "Typescript",
+                        "icon": ""
+                    },
+                    {
+                        "name": "React",
+                        "icon": ""
+                    }
+                ],
+                "link": "link:/to.site",
+                "github": "link:/to.repo",
+                "pictures": [
+                    "pic1.png",
+                    "pic2.png",
+                    "pic3.png"
+                ]
+            },
+            {
+                "name": "projekt neve",
+                "description": "mire jó / milyen problémakört old meg",
+                "stack": [
+                    {
+                        "name": "Nodejs",
+                        "icon": ""
+                    },
+                    {
+                        "name": "Typescript",
+                        "icon": ""
+                    },
+                    {
+                        "name": "React",
+                        "icon": ""
+                    }
+                ],
+                "link": "link:/to.site",
+                "github": "link:/to.repo",
+                "pictures": [
+                    "pic1.png",
+                    "pic2.png",
+                    "pic3.png"
+                ]
+            },
+            {
+                "name": "projekt neve",
+                "description": "mire jó / milyen problémakört old meg",
+                "stack": [
+                    {
+                        "name": "Nodejs",
+                        "icon": ""
+                    },
+                    {
+                        "name": "Typescript",
+                        "icon": ""
+                    },
+                    {
+                        "name": "React",
+                        "icon": ""
+                    }
+                ],
+                "link": "link:/to.site",
+                "github": "link:/to.repo",
+                "pictures": [
+                    "pic1.png",
+                    "pic2.png",
+                    "pic3.png"
+                ]
+            }
+        ]
+    },
+    "aboutAndContact": {
+        "sectionTitle": "Rólam"
+    },
+    "footer": {}
+}
