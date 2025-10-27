@@ -5,13 +5,51 @@
         "title": "personal"
     },
     "hero": {
-        "name": "John Doe",
-        "title": "Rice expert",
+        "name": "Márton Spiteller",
+        "title": "Full-stack Developer",
         "tagLine": "",
-        "cta": "contact me"
+        "cta": "contact"
+    },
+    "aboutAndContact": {
+        "sectionTitle": "About Me",
+        "sectionBio": "I'm a full-stack developer based in Hungary, with 6+ years of experience in system administration and 2+ years of experience developing webapplications within the JavaScript ecosystem.",
+        "toolsAndLanguages": [
+            {
+                "name": "HTML",
+                "logo": "htmlLogo"
+            },
+            {
+                "name": "CSS",
+                "logo": "cssLogo"
+            },
+            {
+                "name": "JavaScript",
+                "logo": "jsLogo"
+            },
+            {
+                "name": "TypeScript",
+                "logo": "tsLogo"
+            },
+            {
+                "name": "Nodejs",
+                "logo": "nodeLogo"
+            },
+            {
+                "name": "Express",
+                "logo": "expressLogo"
+            },
+            {
+                "name": "React",
+                "logo": "reactLogo"
+            },
+            {
+                "name": "Figma",
+                "logo": "figmaLogo"
+            }
+        ]
     },
     "projects": {
-        "sectionTitle": "Projects",
+        "sectionTitle": "My Projects",
         "projects": [
             {
                 "name": "project name",
@@ -89,9 +127,6 @@
                 ]
             }
         ]
-    },
-    "aboutAndContact": {
-        "sectionTitle": "About and Contact"
     },
     "footer": {},
     "notFound": {},

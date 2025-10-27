@@ -3,12 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Personal portfolio page">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Márton Spiteller">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="assets/icons.js"></script>
     <title>
         <%= htmlHead.title %>
     </title>
-
 </head>
 
 <body>
@@ -21,7 +24,29 @@
             <h2>
                 <%= hero.title %>
             </h2>
-            <button>
+
+        </section>
+        <section id="about">
+            <h2 id="about__title">
+                <%= aboutAndContact.sectionTitle %>
+            </h2>
+            <div id="about__body">
+                <p>
+                    <%= aboutAndContact.sectionBio %>
+                </p>
+                <ul>
+                    <% aboutAndContact.toolsAndLanguages.forEach(item=>{ %>
+                        <li class="about__item">
+                            <p>
+                                <%= item.name %>
+                            </p>
+                            <span class="about-item__logo" id="<%=item.logo%>"></span>
+                        </li>
+                        <% }) %>
+                </ul>
+
+            </div>
+            <button onclick="scrollToContact()">
                 <%= hero.cta %>
             </button>
         </section>
@@ -63,27 +88,8 @@
                     <% }) %>
             </div>
         </section>
-        <section id="about">
-            <h2 id="about__title">
-                <%= aboutAndContact.sectionTitle %>
-            </h2>
-            <div id="about__body">
-                <ul>
-                    <li>HTML, CSS</li>
-                    <li>JavaScript</li>
-                    <li>TypeScript</li>
-                    <li>Nodejs</li>
-                    <li>Express</li>
-                    <li>React</li>
-                    <li>Figma</li>
-                </ul>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus numquam, ipsam tenetur voluptas
-                    voluptatem quod quae ducimus laudantium labore pariatur minima eius sunt magni, deserunt asperiores
-                    unde
-                    delectus commodi quos?
-                </p>
-            </div>
+        <section id="contact">
+            <h1>Contact</h1>
         </section>
         <footer>
             <p>footer</p>
@@ -93,7 +99,19 @@
         const body = document.getElementsByTagName("body")[0];
         window.addEventListener("load", setGrayscale);
         function setGrayscale() {
-            setTimeout(() => { body.style.filter = "grayscale(0)"; }, 0); // 1300
+            setTimeout(() => { body.style.filter = "grayscale(0)"; }, 1300);
+            //body.style.filter = "grayscale(0)";
+        }
+
+        const contact = document.getElementById("contact");
+        function scrollToContact() {
+            contact.scrollIntoView({ behavior: "smooth" });
+        }
+
+        const aboutListItems = document.getElementsByClassName("about__item");
+        for (const element of aboutListItems) {
+            console.log(element.children[1].id)
+            element.children[1].innerHTML = icons[element.children[1].id];
         }
     </script>
 </body>

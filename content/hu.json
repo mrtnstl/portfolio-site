@@ -2,67 +2,31 @@
     "lang": "hu",
     "htmlHead": {
         "lang": "hu",
-        "title": "stemélyes"
+        "title": "személyes"
     },
     "hero": {
-        "name": "Doe John",
-        "title": "Rízs szakértő",
+        "name": "Spiteller Márton",
+        "title": "Full-stack Fejlesztő",
         "tagLine": "",
-        "cta": "vedd fel a kapcs."
+        "cta": "kapcsolat"
+    },
+    "aboutAndContact": {
+        "sectionTitle": "Rólam",
+        "sectionBio": "Full-stack fejlesztő vagyok több mint 6 év rendszeradminisztrációs tapasztalattal és több mint 2 év webalkalmazás-fejlesztési gyakorlattal a JavaScript-ökoszisztémában.",
+        "toolsAndLanguages": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "TypeScript",
+            "Nodejs",
+            "Express",
+            "React",
+            "Figma"
+        ]
     },
     "projects": {
-        "sectionTitle": "Projektek",
+        "sectionTitle": "Projektjeim",
         "projects": [
-            {
-                "name": "projekt neve",
-                "description": "mire jó / milyen problémakört old meg",
-                "stack": [
-                    {
-                        "name": "Nodejs",
-                        "icon": ""
-                    },
-                    {
-                        "name": "Typescript",
-                        "icon": ""
-                    },
-                    {
-                        "name": "React",
-                        "icon": ""
-                    }
-                ],
-                "link": "link:/to.site",
-                "github": "link:/to.repo",
-                "pictures": [
-                    "pic1.png",
-                    "pic2.png",
-                    "pic3.png"
-                ]
-            },
-            {
-                "name": "projekt neve",
-                "description": "mire jó / milyen problémakört old meg",
-                "stack": [
-                    {
-                        "name": "Nodejs",
-                        "icon": ""
-                    },
-                    {
-                        "name": "Typescript",
-                        "icon": ""
-                    },
-                    {
-                        "name": "React",
-                        "icon": ""
-                    }
-                ],
-                "link": "link:/to.site",
-                "github": "link:/to.repo",
-                "pictures": [
-                    "pic1.png",
-                    "pic2.png",
-                    "pic3.png"
-                ]
-            },
             {
                 "name": "projekt neve",
                 "description": "mire jó / milyen problémakört old meg",
@@ -90,8 +54,7 @@
             }
         ]
     },
-    "aboutAndContact": {
-        "sectionTitle": "Rólam"
-    },
-    "footer": {}
+    "footer": {},
+    "notFound": {},
+    "error": {}
 }
