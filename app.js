@@ -5,6 +5,7 @@ import hu from "./content/hu.json" with {type: "json"};
 
 import selectLangMW from "./middleware/selectLangMW.js";
 import renderMW from "./middleware/renderMW.js";
+import getLangFromRouteMW from "./middleware/getLangFromRouteMW.js";
 
 const PORT = process.env.PORT || 3001;
 const contentDict = { en, hu };
@@ -30,7 +31,7 @@ app.use(express.static("public"));
 app.use(selectLangMW());
 
 app.get("/", renderMW("index", contentDict));
-
+app.get("/:lang", getLangFromRouteMW(), renderMW("index", contentDict));
 app.use(renderMW("notFound", contentDict));
 
 app.use((err, req, res) => {

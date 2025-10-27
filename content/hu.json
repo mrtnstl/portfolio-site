@@ -14,14 +14,38 @@
         "sectionTitle": "Rólam",
         "sectionBio": "Full-stack fejlesztő vagyok több mint 6 év rendszeradminisztrációs tapasztalattal és több mint 2 év webalkalmazás-fejlesztési gyakorlattal a JavaScript-ökoszisztémában.",
         "toolsAndLanguages": [
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "TypeScript",
-            "Nodejs",
-            "Express",
-            "React",
-            "Figma"
+            {
+                "name": "HTML",
+                "logo": "htmlLogo"
+            },
+            {
+                "name": "CSS",
+                "logo": "cssLogo"
+            },
+            {
+                "name": "JavaScript",
+                "logo": "jsLogo"
+            },
+            {
+                "name": "TypeScript",
+                "logo": "tsLogo"
+            },
+            {
+                "name": "Nodejs",
+                "logo": "nodeLogo"
+            },
+            {
+                "name": "Express",
+                "logo": "expressLogo"
+            },
+            {
+                "name": "React",
+                "logo": "reactLogo"
+            },
+            {
+                "name": "Figma",
+                "logo": "figmaLogo"
+            }
         ]
     },
     "projects": {
