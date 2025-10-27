@@ -29,7 +29,10 @@ body {
     color: var(--color-primary);
 
     margin-inline: auto;
-
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 
     filter: grayscale(0.8);
     transition: filter .5s linear;
@@ -84,18 +87,6 @@ button {
     cursor: pointer;
 }
 
-
-
-main {
-    margin-inline: 10px;
-    margin-top: 5px;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-
-
-}
-
 section {
     flex: auto;
     margin-bottom: 30px;
@@ -104,6 +95,11 @@ section {
 section:first-of-type,
 footer {
     flex: 1;
+}
+
+section,
+footer {
+    padding-inline: 10px;
 }
 
 #project__cards-warpper {
