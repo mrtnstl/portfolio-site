@@ -7,6 +7,7 @@
     <meta name="keywords" content="HTML, CSS, JavaScript">
     <meta name="author" content="Márton Spiteller">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles/style.css">
     <script src="assets/icons.js"></script>
     <title>
@@ -46,7 +47,7 @@
                 </ul>
 
             </div>
-            <button onclick="scrollToSection('contact')">
+            <button id="hero-btn" onclick="scrollToSection('contact')">
                 <%= hero.cta %>
             </button>
         </section>
@@ -91,25 +92,34 @@
             </div>
         </section>
         <section id="contact">
-            <h2>Contact</h2>
+            <h2>
+                <%= contact.sectionTitle %>
+            </h2>
             <div>
-                <p>linkedin</p>
                 <p>email</p>
+                <p>linkedin</p>
             </div>
         </section>
 
     </main>
     <footer>
-        <h1>
-            <%= footer.initials %>
-        </h1>
-        <button onclick="scrollToSection('hero')">back to top</button>
-        <div>
-            <a href="/en">en</a>
-            <a href="/hu">hu</a>
+        <div id="footer-top">
+            <h1>
+                <%= footer.initials %>
+            </h1>
+            <div>
+                <a href="/en">en</a>
+                <a href="/hu">hu</a>
+            </div>
         </div>
-        <button>color theme switcher</button>
-        <p>© 2025 Spiteller Márton</p>
+        <div id="footer-controls">
+            <button onclick="scrollToSection('hero')">
+                <%= footer.backToTopButton %>
+            </button>
+            <button aria-label="color theme switcher">theme</button>
+        </div>
+        <p>© 2025 <%= hero.name %>
+        </p>
     </footer>
     <script>
         const body = document.getElementsByTagName("body")[0];

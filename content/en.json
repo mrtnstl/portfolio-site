@@ -8,7 +8,7 @@
         "name": "Márton Spiteller",
         "title": "Full-stack Developer",
         "tagLine": "",
-        "cta": "contact"
+        "cta": "CONTACT"
     },
     "about": {
         "sectionTitle": "About Me",
@@ -136,11 +136,13 @@
         ]
     },
     "contact": {
+        "sectionTitle": "Contact",
         "email": "myemail@mail.mail",
         "linkedin": "https://linkedin.com/myprofile"
     },
     "footer": {
-        "initials": "MS"
+        "initials": "MS",
+        "backToTopButton": "BACK TO THE TOP"
     },
     "notFound": {},
     "error": {}

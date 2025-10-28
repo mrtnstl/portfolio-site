@@ -14,15 +14,23 @@ body {
     --color-primary: var(--dark-green);
     --color-secondary: var(--grey);
     --color-accent: var(--red);
-
-    --font-size-h1: 2.986rem;
-    --font-size-h2: 2.488rem;
+    /*2.986rem*/
+    --font-size-h1: 2.906rem;
+    --font-size-h2: 2.328rem;
     --font-size-h3: 2.074rem;
+    /*
     --font-size-h4: 1.728rem;
     --font-size-h5: 1.44rem;
     --font-size-h6: 1.2rem;
-    --font-size-p: 1rem;
+    */
+    --font-size-a: 1rem;
+    --font-size-button: 1.2rem;
+
+    /*1rem*/
+    --font-size-p: 1.44rem;
+    /*0.833rem*/
     --font-size-small: 0.833rem;
+    /*0.694rem*/
     --font-size-very-small: 0.694rem;
 
     background-color: var(--color-secondary);
@@ -51,10 +59,16 @@ h3 {
     font-size: var(--font-size-h3);
 }
 
-p,
-a,
-button {
+p {
     font-size: var(--font-size-p);
+}
+
+a {
+    font-size: var(--font-size-a);
+}
+
+button {
+    font-size: var(--font-size-button);
 }
 
 small {
@@ -80,7 +94,7 @@ a:visited {
 }
 
 button {
-    padding: 5px;
+    padding: 8px 8px;
     background-color: var(--color-accent);
     color: var(--color-secondary);
     border: none;
@@ -134,11 +148,18 @@ footer {
 }
 
 .card__item {
+    background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='10' height='10' patternTransform='scale(0.6) rotate(-50)'><rect x='0' y='0' width='100%' height='100%' fill='%23ffffff00'/><path d='M 10,-2.55e-7 V 20 Z M -1.1677362e-8,10 H 20 Z'  stroke-width='0.5' stroke='%230d301dff' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+    font-size: var(--font-size-a);
     padding: 4px 7px;
     border: 2px solid var(--color-primary);
     border-radius: 20px;
     width: fit-content;
     cursor: default;
+}
+
+#about {
+    display: flex;
+    flex-direction: column;
 
 }
 
@@ -150,6 +171,17 @@ footer {
 
 }
 
+#about__body>p {
+    text-align: justify;
+    margin-bottom: 26px;
+}
+
+.about__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .about-item-name {
     font-family: "Noto Serif", serif;
     font-optical-sizing: auto;
@@ -157,10 +189,13 @@ footer {
     font-style: normal;
     font-variation-settings:
         "wdth" 100;
+    font-size: var(--font-size-a);
+    margin-bottom: 4px;
 }
 
 #toolsAndLanguages__list {
     list-style: none;
+    margin-bottom: 26px;
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -180,10 +215,33 @@ footer {
     width: 60px;
 }
 
+#hero-btn {
+    width: fit-content;
+    align-self: center;
+}
 
 footer {
     background-color: var(--color-primary);
     color: var(--color-secondary);
+}
+
+#footer-top {
+    padding-bottom: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+}
+
+#footer-controls {
+    padding-bottom: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+}
+
+footer>p {
+    text-align: center;
+    font-size: var(--font-size-small);
 }
 
 @media screen and (width >=500px) {

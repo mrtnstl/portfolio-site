@@ -1,5 +1,6 @@
 import express from "express";
 import helmet from "helmet";
+
 import en from "./content/en.json" with {type: "json"};
 import hu from "./content/hu.json" with {type: "json"};
 
@@ -8,23 +9,24 @@ import renderMW from "./middleware/renderMW.js";
 import getLangFromRouteMW from "./middleware/getLangFromRouteMW.js";
 import getEmailMW from "./middleware/getEmailMW.js";
 import getLinkedinMW from "./middleware/getLinkedinMW.js";
-import logClientLangMW from "./middleware/logClientLangMW.js";
+import loggerMW from "./middleware/loggerMW.js";
 
 const PORT = process.env.PORT || 3001;
+
 const contentDict = { en, hu };
 const hitCounter = {
     website: 0,
     email: 0,
     linkedin: 0,
-    languages: {
-
-    }
+    languages: {}
 };
 const objectRepo = { contentDict, hitCounter };
 
 const app = express();
 
+app.set("trust proxy", process.env.NODE_ENV === "prod" ? true : false);
 app.set("view engine", "ejs");
+
 app.use(helmet({
     contentSecurityPolicy: process.env.NODE_ENV === "prod" ? true : false
 }));
@@ -40,37 +42,54 @@ app.use("/fonts", express.static("public/fonts", {
 */
 app.use(express.static("public"));
 // TODO: send hit logs to my email daily
-
-app.use((req, res, next) => {
-    console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`);
-    next();
-});
+// send startup/shutdown logs to my email on occurrance
+// collect access logs and error logs to a service
+// TODO: implement rate limiting
 
 app.use(selectLangMW(objectRepo));
 
+app.use(loggerMW(objectRepo));
+
 // api
 app.get("/email",
-    logClientLangMW(objectRepo),
     getEmailMW(objectRepo));
 app.get("/linkedin",
-    logClientLangMW(objectRepo),
     getLinkedinMW(objectRepo));
+
 // pages
 app.get("/",
-    logClientLangMW(objectRepo),
     renderMW(objectRepo, "index"));
 app.get("/:lang",
-    logClientLangMW(objectRepo),
     getLangFromRouteMW(objectRepo),
     renderMW(objectRepo, "index"));
+
+// wildcard route
 app.use(
-    logClientLangMW(objectRepo),
     renderMW(objectRepo, "notFound"));
 
-app.use((err, req, res) => {
+// error handler
+app.use((err, req, res, next) => {
+    console.log("TODO: LOG ERRORS WHERE IT HAS SOME USE!!!");
+    console.log(err);
+    return next();
+}, renderMW(objectRepo, "error"));
 
+const server = app.listen(PORT, () => {
+    console.log(`[${new Date().toISOString()}]\tApp is listening on port ${PORT}`);
 });
 
-app.listen(PORT, () => {
-    console.log(`App is listening on port ${PORT}`);
-});
+
+function cleanupAndShutdown(signal) {
+    console.log(`[${new Date().toISOString()}]\t${signal} signal recieved! Initiating cleanup and shutdown!`);
+    server.close(async () => {
+        console.log(`[${new Date().toISOString()}]\tServer closed!\t${JSON.stringify(hitCounter)}`);
+        process.exit(0);
+    });
+    setTimeout(() => {
+        console.log(`[${new Date().toISOString()}]\tThe cleanup process takes too long! Shutting down forcefully!`);
+        process.exit(1);
+    }, 5000);
+}
+
+process.on("SIGTERM", cleanupAndShutdown);
+process.on("SIGINT", cleanupAndShutdown);
