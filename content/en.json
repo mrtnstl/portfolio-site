@@ -10,7 +10,7 @@
         "tagLine": "",
         "cta": "contact"
     },
-    "aboutAndContact": {
+    "about": {
         "sectionTitle": "About Me",
         "sectionBio": "I'm a full-stack developer based in Hungary, with 6+ years of experience in system administration and 2+ years of experience developing webapplications within the JavaScript ecosystem.",
         "toolsAndLanguages": [
@@ -43,6 +43,10 @@
                 "logo": "reactLogo"
             },
             {
+                "name": "PostgreSQL",
+                "logo": "pgLogo"
+            },
+            {
                 "name": "Figma",
                 "logo": "figmaLogo"
             }
@@ -52,19 +56,28 @@
         "sectionTitle": "My Projects",
         "projects": [
             {
-                "name": "project name",
+                "isPublic": true,
+                "name": "recipes-and-shopping-lists",
                 "description": "what is does / what problem it solves",
                 "stack": [
+                    {
+                        "name": "JavaScript",
+                        "icon": ""
+                    },
+                    {
+                        "name": "React",
+                        "icon": ""
+                    },
                     {
                         "name": "Nodejs",
                         "icon": ""
                     },
                     {
-                        "name": "Typescript",
+                        "name": "Express",
                         "icon": ""
                     },
                     {
-                        "name": "React",
+                        "name": "PostgreSQL",
                         "icon": ""
                     }
                 ],
@@ -77,19 +90,20 @@
                 ]
             },
             {
-                "name": "project name",
+                "isPublic": false,
+                "name": "notification-service",
                 "description": "what is does / what problem it solves",
                 "stack": [
+                    {
+                        "name": "TypeScript",
+                        "icon": ""
+                    },
                     {
                         "name": "Nodejs",
                         "icon": ""
                     },
                     {
-                        "name": "Typescript",
-                        "icon": ""
-                    },
-                    {
-                        "name": "React",
+                        "name": "Express",
                         "icon": ""
                     }
                 ],
@@ -102,19 +116,12 @@
                 ]
             },
             {
-                "name": "project name",
+                "isPublic": true,
+                "name": "sqlite-db-manager",
                 "description": "what is does / what problem it solves",
                 "stack": [
                     {
-                        "name": "Nodejs",
-                        "icon": ""
-                    },
-                    {
-                        "name": "Typescript",
-                        "icon": ""
-                    },
-                    {
-                        "name": "React",
+                        "name": "Java",
                         "icon": ""
                     }
                 ],
@@ -128,7 +135,13 @@
             }
         ]
     },
-    "footer": {},
+    "contact": {
+        "email": "myemail@mail.mail",
+        "linkedin": "https://linkedin.com/myprofile"
+    },
+    "footer": {
+        "initials": "MS"
+    },
     "notFound": {},
     "error": {}
 }

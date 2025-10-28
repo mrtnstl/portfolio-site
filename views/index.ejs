@@ -28,16 +28,16 @@
         </section>
         <section id="about">
             <h2 id="about__title">
-                <%= aboutAndContact.sectionTitle %>
+                <%= about.sectionTitle %>
             </h2>
             <div id="about__body">
                 <p>
-                    <%= aboutAndContact.sectionBio %>
+                    <%= about.sectionBio %>
                 </p>
-                <ul>
-                    <% aboutAndContact.toolsAndLanguages.forEach(item=>{ %>
+                <ul id="toolsAndLanguages__list">
+                    <% about.toolsAndLanguages.forEach(item=>{ %>
                         <li class="about__item">
-                            <p>
+                            <p class="about-item-name">
                                 <%= item.name %>
                             </p>
                             <span class="about-item__logo" id="<%=item.logo%>"></span>
@@ -46,7 +46,7 @@
                 </ul>
 
             </div>
-            <button onclick="scrollToContact()">
+            <button onclick="scrollToSection('contact')">
                 <%= hero.cta %>
             </button>
         </section>
@@ -56,53 +56,61 @@
             </h2>
             <div id="project__cards-warpper">
                 <% projects.projects.forEach(project=>{ %>
-                    <div class="project__card">
-                        <h3>
-                            <%= project.name %>
-                        </h3>
-                        <p>
-                            <%= project.description %>
-                        </p>
-                        <div>
-                            <% project.pictures.forEach(picture=>{ %>
-                                <span>
-                                    <%= picture %>
-                                </span>
-                                <% }) %>
+                    <% if(project.isPublic){ %>
+                        <div class="project__card">
+                            <h3>
+                                <%= project.name %>
+                            </h3>
+                            <p>
+                                <%= project.description %>
+                            </p>
+                            <div>
+                                <% project.pictures.forEach(picture=>{ %>
+                                    <span>
+                                        <%= picture %>
+                                    </span>
+                                    <% }) %>
+                            </div>
+                            <div class="project-card-item-wrapper">
+                                <% project.stack.forEach(item=>{ %>
+                                    <p class="card__item">
+                                        <%= item.name %>
+                                    </p>
+                                    <% }) %>
+                            </div>
+                            <a href="<%= project.link %>">
+                                <%= project.link %>
+                            </a>
+                            <br>
+                            <a href="<%= project.github %>">
+                                <%= project.github %>
+                            </a>
                         </div>
-                        <div>
-                            <% project.stack.forEach(item=>{ %>
-                                <p class="card__item">
-                                    <%= item.name %>
-                                </p>
-                                <% }) %>
-                        </div>
-                        <a href="<%= project.link %>">
-                            <%= project.link %>
-                        </a>
-                        <br>
-                        <a href="<%= project.github %>">
-                            <%= project.github %>
-                        </a>
-                    </div>
-                    <% }) %>
+                        <% }%>
+                            <% }) %>
             </div>
         </section>
         <section id="contact">
-            <h1>Contact</h1>
+            <h2>Contact</h2>
             <div>
                 <p>linkedin</p>
                 <p>email</p>
             </div>
         </section>
-        <footer>
-            <h1>MS</h1>
-            <button>back to top</button>
-            <p>lang switcher</p>
-            <button>color theme swither</button>
-            <p>© 2025 Spiteller Márton</p>
-        </footer>
+
     </main>
+    <footer>
+        <h1>
+            <%= footer.initials %>
+        </h1>
+        <button onclick="scrollToSection('hero')">back to top</button>
+        <div>
+            <a href="/en">en</a>
+            <a href="/hu">hu</a>
+        </div>
+        <button>color theme switcher</button>
+        <p>© 2025 Spiteller Márton</p>
+    </footer>
     <script>
         const body = document.getElementsByTagName("body")[0];
         window.addEventListener("load", setGrayscale);
@@ -111,14 +119,14 @@
             //body.style.filter = "grayscale(0)";
         }
 
-        const contact = document.getElementById("contact");
-        function scrollToContact() {
-            contact.scrollIntoView({ behavior: "smooth" });
+        function scrollToSection(section) {
+            const sectionElement = document.getElementById(section);
+            sectionElement.scrollIntoView({ behavior: "smooth" });
         }
 
         const aboutListItems = document.getElementsByClassName("about__item");
         for (const element of aboutListItems) {
-            console.log(element.children[1].id)
+            //console.log(element.children[1].id)
             element.children[1].innerHTML = icons[element.children[1].id];
         }
     </script>

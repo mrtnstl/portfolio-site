@@ -6,9 +6,21 @@ import hu from "./content/hu.json" with {type: "json"};
 import selectLangMW from "./middleware/selectLangMW.js";
 import renderMW from "./middleware/renderMW.js";
 import getLangFromRouteMW from "./middleware/getLangFromRouteMW.js";
+import getEmailMW from "./middleware/getEmailMW.js";
+import getLinkedinMW from "./middleware/getLinkedinMW.js";
+import logClientLangMW from "./middleware/logClientLangMW.js";
 
 const PORT = process.env.PORT || 3001;
 const contentDict = { en, hu };
+const hitCounter = {
+    website: 0,
+    email: 0,
+    linkedin: 0,
+    languages: {
+
+    }
+};
+const objectRepo = { contentDict, hitCounter };
 
 const app = express();
 
@@ -27,12 +39,33 @@ app.use("/fonts", express.static("public/fonts", {
 }));
 */
 app.use(express.static("public"));
-// TODO: log hits by week into a text file
-app.use(selectLangMW());
+// TODO: send hit logs to my email daily
 
-app.get("/", renderMW("index", contentDict));
-app.get("/:lang", getLangFromRouteMW(), renderMW("index", contentDict));
-app.use(renderMW("notFound", contentDict));
+app.use((req, res, next) => {
+    console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`);
+    next();
+});
+
+app.use(selectLangMW(objectRepo));
+
+// api
+app.get("/email",
+    logClientLangMW(objectRepo),
+    getEmailMW(objectRepo));
+app.get("/linkedin",
+    logClientLangMW(objectRepo),
+    getLinkedinMW(objectRepo));
+// pages
+app.get("/",
+    logClientLangMW(objectRepo),
+    renderMW(objectRepo, "index"));
+app.get("/:lang",
+    logClientLangMW(objectRepo),
+    getLangFromRouteMW(objectRepo),
+    renderMW(objectRepo, "index"));
+app.use(
+    logClientLangMW(objectRepo),
+    renderMW(objectRepo, "notFound"));
 
 app.use((err, req, res) => {
 
