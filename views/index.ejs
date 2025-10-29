@@ -16,92 +16,92 @@
 </head>
 
 <body>
-    <main>
-        <!--<header> </header>-->
-        <section id="hero">
-            <h1>
-                <%= hero.name %>
-            </h1>
-            <h2>
-                <%= hero.title %>
-            </h2>
 
-        </section>
-        <section id="about">
-            <h2 id="about__title">
-                <%= about.sectionTitle %>
-            </h2>
-            <div id="about__body">
-                <p>
-                    <%= about.sectionBio %>
-                </p>
-                <ul id="toolsAndLanguages__list">
-                    <% about.toolsAndLanguages.forEach(item=>{ %>
-                        <li class="about__item">
-                            <p class="about-item-name">
-                                <%= item.name %>
-                            </p>
-                            <span class="about-item__logo" id="<%=item.logo%>"></span>
-                        </li>
-                        <% }) %>
-                </ul>
-            </div>
-            <button id="hero-btn" onclick="scrollToSection('contact')">
-                <%= hero.cta %>
-            </button>
-        </section>
-        <section id="projects">
-            <h2>
-                <%= projects.sectionTitle %>
-            </h2>
-            <div id="project__cards-warpper">
-                <% projects.projects.forEach(project=>{ %>
-                    <% if(project.isPublic){ %>
-                        <div class="project__card">
-                            <h3 class="project-card-title">
-                                <%= project.name %>
-                            </h3>
-                            <p class="project-card-description">
-                                <%= project.description %>
-                            </p>
-                            <div style="display: none;">
-                                <% project.pictures.forEach(picture=>{ %>
-                                    <span>
-                                        <%= picture %>
-                                    </span>
-                                    <% }) %>
-                            </div>
-                            <div class="project-card-tools-wrapper">
-                                <% project.stack.forEach(item=>{ %>
-                                    <p class="card__item">
-                                        <%= item.name %>
-                                    </p>
-                                    <% }) %>
-                            </div>
-                            <div class="project-card-links">
-                                <a href="<%= project.link %>">
-                                    <%= project.link %>
-                                </a>
-                                <a href="<%= project.github %>">
-                                    <%= project.github %>
-                                </a>
-                            </div>
+    <!--<header> </header>-->
+    <section id="hero">
+        <h1 id="authorName">
+            <%= hero.name %>
+        </h1>
+        <h2>
+            <%= hero.title %>
+        </h2>
+
+    </section>
+    <section id="about">
+        <h2 id="about__title">
+            <%= about.sectionTitle %>
+        </h2>
+        <div id="about__body">
+            <p>
+                <%= about.sectionBio %>
+            </p>
+            <ul id="toolsAndLanguages__list">
+                <% about.toolsAndLanguages.forEach(item=>{ %>
+                    <li class="about__item">
+                        <p class="about-item-name">
+                            <%= item.name %>
+                        </p>
+                        <span class="about-item__logo" id="<%=item.logo%>"></span>
+                    </li>
+                    <% }) %>
+            </ul>
+        </div>
+        <button id="hero-btn" onclick="scrollToSection('contact')">
+            <%= hero.cta %>
+        </button>
+    </section>
+    <section id="projects">
+        <h2>
+            <%= projects.sectionTitle %>
+        </h2>
+        <div id="project__cards-warpper">
+            <% projects.projects.forEach(project=>{ %>
+                <% if(project.isPublic){ %>
+                    <div class="project__card">
+                        <h3 class="project-card-title">
+                            <%= project.name %>
+                        </h3>
+                        <p class="project-card-description">
+                            <%= project.description %>
+                        </p>
+                        <div style="display: none;">
+                            <% project.pictures.forEach(picture=>{ %>
+                                <span>
+                                    <%= picture %>
+                                </span>
+                                <% }) %>
                         </div>
-                        <% }%>
-                            <% }) %>
-            </div>
-        </section>
-        <section id="contact">
-            <h2>
-                <%= contact.sectionTitle %>
-            </h2>
-            <div>
-                <p>email</p>
-                <p>linkedin</p>
-            </div>
-        </section>
+                        <div class="project-card-tools-wrapper">
+                            <% project.stack.forEach(item=>{ %>
+                                <p class="card__item">
+                                    <%= item.name %>
+                                </p>
+                                <% }) %>
+                        </div>
+                        <div class="project-card-links">
+                            <a href="<%= project.link %>">
+                                <%= project.link %>
+                            </a>
+                            <a href="<%= project.github %>">
+                                <%= project.github %>
+                            </a>
+                        </div>
+                    </div>
+                    <% }%>
+                        <% }) %>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>
+            <%= contact.sectionTitle %>
+        </h2>
+        <div>
+            <p>email</p>
+            <p>linkedin</p>
+        </div>
+    </section>
 
-    </main>
+
     <footer>
         <div id="footer-top">
             <h1>
@@ -122,11 +122,19 @@
         </p>
     </footer>
     <script>
+        const root = document.querySelector(":root");
         const body = document.getElementsByTagName("body")[0];
-        window.addEventListener("load", setGrayscale);
-        function setGrayscale() {
-            setTimeout(() => { body.style.filter = "grayscale(0)"; }, 1300);
-            //body.style.filter = "grayscale(0)";
+        const heroName = document.getElementById("authorName");
+
+        window.addEventListener("load", onPageLoad);
+
+        function onPageLoad() {
+            setTimeout(() => {
+                heroName.style.textShadow = `2px 3px 0 ${getComputedStyle(root).getPropertyValue("--color-accent")}`;
+            }, 900);
+            setTimeout(() => {
+                body.style.filter = "grayscale(0)";
+            }, 1300);
         }
 
         function scrollToSection(section) {

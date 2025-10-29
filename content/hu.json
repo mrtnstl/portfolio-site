@@ -8,11 +8,11 @@
         "name": "Spiteller Márton",
         "title": "Full-stack Fejlesztő",
         "tagLine": "",
-        "cta": "ELÉRHETŐSÉGEIM"
+        "cta": "elérhetőségeim"
     },
     "about": {
         "sectionTitle": "Rólam",
-        "sectionBio": "Full-stack fejlesztő vagyok több mint 6 év rendszeradminisztrációs tapasztalattal és több mint 2 év webalkalmazás-fejlesztési gyakorlattal a JavaScript-ökoszisztémában.",
+        "sectionBio": "Full-stack fejlesztő vagyok 6+ év rendszeradminisztrációs tapasztalattal és 2+ év webalkalmazás-fejlesztési gyakorlattal JavaScript-ökoszisztémában.",
         "toolsAndLanguages": [
             {
                 "name": "HTML",
@@ -58,7 +58,7 @@
             {
                 "isPublic": true,
                 "name": "recipes-and-shopping-lists",
-                "description": "Full-stack webalkalmazás, amivel a felhasználók létrehozhatnak recepteket és bevásárló listát generálhatnak egy recept alapján, a hűtőszekrényük tartalmának figyelembevételével.",
+                "description": "Full-stack webalkalmazás, amiben a felhasználók létrehozhatnak recepteket és bevásárló listát generálhatnak egy recept alapján, a hűtőszekrényük tartalmának figyelembevételével.",
                 "stack": [
                     {
                         "name": "JavaScript",
@@ -146,7 +146,7 @@
     },
     "footer": {
         "initials": "SM",
-        "backToTopButton": "VISSZA A TETEJÉRE"
+        "backToTopButton": "vissza a tetejére"
     },
     "notFound": {},
     "error": {}
