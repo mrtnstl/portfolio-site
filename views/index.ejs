@@ -45,7 +45,6 @@
                         </li>
                         <% }) %>
                 </ul>
-
             </div>
             <button id="hero-btn" onclick="scrollToSection('contact')">
                 <%= hero.cta %>
@@ -59,33 +58,34 @@
                 <% projects.projects.forEach(project=>{ %>
                     <% if(project.isPublic){ %>
                         <div class="project__card">
-                            <h3>
+                            <h3 class="project-card-title">
                                 <%= project.name %>
                             </h3>
-                            <p>
+                            <p class="project-card-description">
                                 <%= project.description %>
                             </p>
-                            <div>
+                            <div style="display: none;">
                                 <% project.pictures.forEach(picture=>{ %>
                                     <span>
                                         <%= picture %>
                                     </span>
                                     <% }) %>
                             </div>
-                            <div class="project-card-item-wrapper">
+                            <div class="project-card-tools-wrapper">
                                 <% project.stack.forEach(item=>{ %>
                                     <p class="card__item">
                                         <%= item.name %>
                                     </p>
                                     <% }) %>
                             </div>
-                            <a href="<%= project.link %>">
-                                <%= project.link %>
-                            </a>
-                            <br>
-                            <a href="<%= project.github %>">
-                                <%= project.github %>
-                            </a>
+                            <div class="project-card-links">
+                                <a href="<%= project.link %>">
+                                    <%= project.link %>
+                                </a>
+                                <a href="<%= project.github %>">
+                                    <%= project.github %>
+                                </a>
+                            </div>
                         </div>
                         <% }%>
                             <% }) %>

@@ -58,7 +58,7 @@
             {
                 "isPublic": true,
                 "name": "recipes-and-shopping-lists",
-                "description": "what is does / what problem it solves",
+                "description": "Full-stack webalkalmazás, amivel a felhasználók létrehozhatnak recepteket és bevásárló listát generálhatnak egy recept alapján, a hűtőszekrényük tartalmának figyelembevételével.",
                 "stack": [
                     {
                         "name": "JavaScript",
@@ -118,10 +118,14 @@
             {
                 "isPublic": true,
                 "name": "sqlite-db-manager",
-                "description": "what is does / what problem it solves",
+                "description": "Asztali alkalmazás, SQLite adatbázisok letisztult és gördülékeny kezelésére.",
                 "stack": [
                     {
                         "name": "Java",
+                        "icon": ""
+                    },
+                    {
+                        "name": "JavaFX",
                         "icon": ""
                     }
                 ],

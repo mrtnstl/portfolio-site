@@ -58,7 +58,7 @@
             {
                 "isPublic": true,
                 "name": "recipes-and-shopping-lists",
-                "description": "what is does / what problem it solves",
+                "description": "Full-stack webapplication, where users can manage recipes and generate shopping lists based on a recipe in relation to their fridges content.",
                 "stack": [
                     {
                         "name": "JavaScript",
@@ -118,10 +118,14 @@
             {
                 "isPublic": true,
                 "name": "sqlite-db-manager",
-                "description": "what is does / what problem it solves",
+                "description": "Desktop application, designed to provide a clean and intuitive way to handle SQLite databases.",
                 "stack": [
                     {
                         "name": "Java",
+                        "icon": ""
+                    },
+                    {
+                        "name": "JavaFX",
                         "icon": ""
                     }
                 ],
