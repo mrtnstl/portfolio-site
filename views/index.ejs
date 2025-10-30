@@ -15,7 +15,7 @@
     </title>
 </head>
 
-<body>
+<body data-color-scheme="">
 
     <!--<header> </header>-->
     <section id="hero">
@@ -116,22 +116,42 @@
             <button onclick="scrollToSection('hero')">
                 <%= footer.backToTopButton %>
             </button>
-            <button aria-label="color theme switcher">theme</button>
+            <button id="colorModeButton" aria-label="theme switcher">theme</button>
         </div>
         <p>© 2025 <%= hero.name %>
         </p>
     </footer>
     <script>
-        const root = document.querySelector(":root");
-        const body = document.getElementsByTagName("body")[0];
-        const heroName = document.getElementById("authorName");
+        //const root = document.querySelector(":root");
+
+        const body = document.querySelector("body");
+        const heroName = document.querySelector("#authorName");
+
+        let documentColorScheme = body.getAttribute("data-color-scheme");
+        let storedColorScheme = localStorage.getItem("colorScheme");
+
+        if (!storedColorScheme) {
+            localStorage.setItem("colorScheme", "light");
+            storedColorScheme = localStorage.getItem("colorScheme");
+            body.setAttribute("data-color-scheme", storedColorScheme);
+        } else {
+            body.setAttribute("data-color-scheme", storedColorScheme);
+        }
+
+        const colorModeButton = document.querySelector("#colorModeButton");
+        colorModeButton.addEventListener("click", handleColorModeChange);
+        function handleColorModeChange() {
+            storedColorScheme = localStorage.getItem("colorScheme");
+            storedColorScheme === "dark" ? localStorage.setItem("colorScheme", "light") : localStorage.setItem("colorScheme", "dark");
+            newColorScheme = storedColorScheme === "dark" ? "light" : "dark";
+            body.setAttribute("data-color-scheme", newColorScheme);
+        }
 
         window.addEventListener("load", onPageLoad);
-
         function onPageLoad() {
             setTimeout(() => {
-                heroName.style.textShadow = `2px 3px 0 ${getComputedStyle(root).getPropertyValue("--color-accent")}`;
-            }, 900);
+                heroName.style.textShadow = `2px 3px 0 ${getComputedStyle(body).getPropertyValue("--color-accent")}`;
+            }, 0);
             setTimeout(() => {
                 body.style.filter = "grayscale(0)";
             }, 1300);
@@ -144,9 +164,9 @@
 
         const aboutListItems = document.getElementsByClassName("about__item");
         for (const element of aboutListItems) {
-            //console.log(element.children[1].id)
             element.children[1].innerHTML = icons[element.children[1].id];
         }
+
     </script>
 </body>
 

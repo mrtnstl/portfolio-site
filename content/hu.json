@@ -8,7 +8,7 @@
         "name": "Spiteller Márton",
         "title": "Full-stack Fejlesztő",
         "tagLine": "",
-        "cta": "elérhetőségeim"
+        "cta": "elérhetőségem"
     },
     "about": {
         "sectionTitle": "Rólam",
@@ -140,7 +140,7 @@
         ]
     },
     "contact": {
-        "sectionTitle": "Elérhetőségeim",
+        "sectionTitle": "Elérhetőségem",
         "email": "myemail@mail.mail",
         "linkedin": "https://linkedin.com/myprofile"
     },

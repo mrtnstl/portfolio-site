@@ -7,13 +7,37 @@
 }
 
 :root {
+    /* light mode palette */
     --grey: #f8f8f8;
     --dark-green: #0d301d;
     --red: #c25c5f;
+    /* dark mode palette */
+    --dm-grey: #c2c2c2;
+    --dm-dark-green: #244733;
+    --dm-darker-green: #162b1f;
 
     --color-primary: var(--dark-green);
     --color-secondary: var(--grey);
     --color-accent: var(--red);
+    --color-button: var(--red);
+    --color-footer: var(--color-primary);
+
+    & body[data-color-scheme=""],
+    & body[data-color-scheme="light"] {
+        --color-primary: var(--dark-green);
+        --color-secondary: var(--grey);
+        --color-accent: var(--red);
+        --color-button: var(--red);
+        --color-footer: var(--color-primary);
+    }
+
+    & body[data-color-scheme="dark"] {
+        --color-primary: var(--dm-grey);
+        --color-secondary: var(--dm-dark-green);
+        --color-accent: var(--red);
+        --color-button: var(--red);
+        --color-footer: var(--dm-darker-green);
+    }
 
     /*2.986rem*/
     --font-size-h1: 2.906rem;
@@ -49,7 +73,7 @@ body {
     flex-direction: column;
 
     filter: grayscale(1);
-    transition: filter .4s ease-in-out;
+    transition: filter .4s ease-in-out, color .1s ease-in-out, background-color .1s ease-in-out;
 }
 
 h1 {
@@ -101,7 +125,7 @@ a:visited {
 
 button {
     padding: 8px 8px;
-    background-color: var(--color-accent);
+    background-color: var(--color-button);
     color: var(--color-secondary);
     border: none;
     border-radius: 5px;
@@ -229,8 +253,10 @@ footer {
     position: absolute;
     inset: 0;
     background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='10' height='10' patternTransform='scale(1.8) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%23ffffff00'/><path d='M 10,-2.55e-7 V 20 Z M -1.1677362e-8,10 H 20 Z'  stroke-width='0.5' stroke='%230d301dff' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
-    opacity: 0.09;
+    opacity: 0.07;
     z-index: -1;
+
+
 }
 
 .project__card:hover {
@@ -274,7 +300,7 @@ footer {
 }
 
 footer {
-    background-color: var(--color-primary);
+    background-color: var(--color-footer);
     color: var(--color-secondary);
 }
 
