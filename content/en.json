@@ -12,7 +12,7 @@
     },
     "about": {
         "sectionTitle": "About Me",
-        "sectionBio": "I'm a full-stack developer based in Hungary, with 6+ years of experience in system administration and 2+ years of experience developing webapplications within the JavaScript ecosystem.",
+        "sectionBio": "I'm a full-stack developer based in Hungary, with 2+ years of experience developing webapplications within the JavaScript ecosystem and 6+ years of experience in system administration.",
         "toolsAndLanguages": [
             {
                 "name": "HTML",
@@ -58,7 +58,7 @@
             {
                 "isPublic": true,
                 "name": "recipes-and-shopping-lists",
-                "description": "Full-stack webapplication, where users can manage recipes and generate shopping lists based on a recipe in relation to their fridges content.",
+                "description": "Webapplication, where users can manage recipes and generate shopping lists based on a recipe in relation to their fridges content.",
                 "stack": [
                     {
                         "name": "JavaScript",
@@ -81,8 +81,14 @@
                         "icon": ""
                     }
                 ],
-                "link": "link:/to.site",
-                "github": "link:/to.repo",
+                "link": {
+                    "url": "link:/to.site",
+                    "text": "application"
+                },
+                "github": {
+                    "url": "link:/to.repo",
+                    "text": "github"
+                },
                 "pictures": [
                     "pic1.png",
                     "pic2.png",
@@ -107,8 +113,14 @@
                         "icon": ""
                     }
                 ],
-                "link": "link:/to.site",
-                "github": "link:/to.repo",
+                "link": {
+                    "url": "link:/to.site",
+                    "text": "application"
+                },
+                "github": {
+                    "url": "link:/to.repo",
+                    "text": "github"
+                },
                 "pictures": [
                     "pic1.png",
                     "pic2.png",
@@ -129,8 +141,14 @@
                         "icon": ""
                     }
                 ],
-                "link": "link:/to.site",
-                "github": "link:/to.repo",
+                "link": {
+                    "url": "link:/to.site",
+                    "text": "application"
+                },
+                "github": {
+                    "url": "link:/to.repo",
+                    "text": "github"
+                },
                 "pictures": [
                     "pic1.png",
                     "pic2.png",

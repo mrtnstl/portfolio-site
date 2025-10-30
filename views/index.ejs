@@ -19,6 +19,13 @@
 
     <!--<header> </header>-->
     <section id="hero">
+        <div id="page-controls">
+            <div id="page-controls-lang">
+                <a href="/en">en</a>
+                <a href="/hu">hu</a>
+            </div>
+            <button id="colorModeButton" aria-label="theme switcher">theme</button>
+        </div>
         <h1 id="authorName">
             <%= hero.name %>
         </h1>
@@ -79,11 +86,11 @@
                                 <% }) %>
                         </div>
                         <div class="project-card-links">
-                            <a href="<%= project.link %>">
-                                <%= project.link %>
+                            <a href="<%= project.link.url %>">
+                                <%= project.link.text %>
                             </a>
-                            <a href="<%= project.github %>">
-                                <%= project.github %>
+                            <a href="<%= project.github.url %>">
+                                <%= project.github.text %>
                             </a>
                         </div>
                     </div>
@@ -104,26 +111,23 @@
 
     <footer>
         <div id="footer-top">
-            <h1>
-                <%= footer.initials %>
-            </h1>
             <div>
-                <a href="/en">en</a>
-                <a href="/hu">hu</a>
+                <h1>
+                    <%= footer.initials %>
+                </h1>
+                <div>
+                    <a href="/en">en</a>
+                    <a href="/hu">hu</a>
+                </div>
             </div>
-        </div>
-        <div id="footer-controls">
             <button onclick="scrollToSection('hero')">
                 <%= footer.backToTopButton %>
             </button>
-            <button id="colorModeButton" aria-label="theme switcher">theme</button>
         </div>
         <p>© 2025 <%= hero.name %>
         </p>
     </footer>
     <script>
-        //const root = document.querySelector(":root");
-
         const body = document.querySelector("body");
         const heroName = document.querySelector("#authorName");
 
@@ -149,12 +153,8 @@
 
         window.addEventListener("load", onPageLoad);
         function onPageLoad() {
-            setTimeout(() => {
-                heroName.style.textShadow = `2px 3px 0 ${getComputedStyle(body).getPropertyValue("--color-accent")}`;
-            }, 0);
-            setTimeout(() => {
-                body.style.filter = "grayscale(0)";
-            }, 1300);
+            heroName.style.textShadow = `2px 3px 0 ${getComputedStyle(body).getPropertyValue("--color-accent")}`;
+            body.style.filter = "grayscale(0)";
         }
 
         function scrollToSection(section) {
@@ -166,7 +166,6 @@
         for (const element of aboutListItems) {
             element.children[1].innerHTML = icons[element.children[1].id];
         }
-
     </script>
 </body>
 

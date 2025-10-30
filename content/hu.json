@@ -12,7 +12,7 @@
     },
     "about": {
         "sectionTitle": "Rólam",
-        "sectionBio": "Full-stack fejlesztő vagyok 6+ év rendszeradminisztrációs tapasztalattal és 2+ év webalkalmazás-fejlesztési gyakorlattal JavaScript-ökoszisztémában.",
+        "sectionBio": "Full-stack fejlesztő vagyok 2+ év webalkalmazás-fejlesztési tapasztalattal JavaScript-ökoszisztémában és 6+ év tapasztalattal rendszeradminisztrációban.",
         "toolsAndLanguages": [
             {
                 "name": "HTML",
@@ -58,7 +58,7 @@
             {
                 "isPublic": true,
                 "name": "recipes-and-shopping-lists",
-                "description": "Full-stack webalkalmazás, amiben a felhasználók létrehozhatnak recepteket és bevásárló listát generálhatnak egy recept alapján, a hűtőszekrényük tartalmának figyelembevételével.",
+                "description": "Webalkalmazás, amiben a felhasználók létrehozhatnak recepteket és bevásárló listát generálhatnak egy recept alapján, a hűtőszekrényük tartalmának figyelembevételével.",
                 "stack": [
                     {
                         "name": "JavaScript",
@@ -81,8 +81,14 @@
                         "icon": ""
                     }
                 ],
-                "link": "link:/to.site",
-                "github": "link:/to.repo",
+                "link": {
+                    "url": "link:/to.site",
+                    "text": "alkalmazás"
+                },
+                "github": {
+                    "url": "link:/to.repo",
+                    "text": "github"
+                },
                 "pictures": [
                     "pic1.png",
                     "pic2.png",
@@ -107,8 +113,14 @@
                         "icon": ""
                     }
                 ],
-                "link": "link:/to.site",
-                "github": "link:/to.repo",
+                "link": {
+                    "url": "link:/to.site",
+                    "text": "alkalmazás"
+                },
+                "github": {
+                    "url": "link:/to.repo",
+                    "text": "github"
+                },
                 "pictures": [
                     "pic1.png",
                     "pic2.png",
@@ -129,8 +141,14 @@
                         "icon": ""
                     }
                 ],
-                "link": "link:/to.site",
-                "github": "link:/to.repo",
+                "link": {
+                    "url": "link:/to.site",
+                    "text": "alkalmazás"
+                },
+                "github": {
+                    "url": "link:/to.repo",
+                    "text": "github"
+                },
                 "pictures": [
                     "pic1.png",
                     "pic2.png",
