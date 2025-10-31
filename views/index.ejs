@@ -16,15 +16,19 @@
 </head>
 
 <body data-color-scheme="">
-
-    <!--<header> </header>-->
+    <!--<div id="page-loader">
+        <p>loading...</p>
+    </div>-->
     <section id="hero">
         <div id="page-controls">
             <div id="page-controls-lang">
                 <a href="/en">en</a>
                 <a href="/hu">hu</a>
             </div>
-            <button id="colorModeButton" aria-label="theme switcher">theme</button>
+            <button id="color-mode-button" aria-label="theme switcher">
+                <span id="color-mode-button-light">light</span>
+                <span id="color-mode-button-dark">dark</span>
+            </button>
         </div>
         <h1 id="authorName">
             <%= hero.name %>
@@ -86,10 +90,10 @@
                                 <% }) %>
                         </div>
                         <div class="project-card-links">
-                            <a href="<%= project.link.url %>">
+                            <a href="<%= project.link.url %>" target="_blank">
                                 <%= project.link.text %>
                             </a>
-                            <a href="<%= project.github.url %>">
+                            <a href="<%= project.github.url %>" target="_blank">
                                 <%= project.github.text %>
                             </a>
                         </div>
@@ -120,14 +124,28 @@
                     <a href="/hu">hu</a>
                 </div>
             </div>
-            <button onclick="scrollToSection('hero')">
-                <%= footer.backToTopButton %>
+            <button id="back-to-top-button" onclick="scrollToSection('hero')"
+                aria-label="<%= footer.backToTopButton %>">
+                <svg fill="var(--color-secondary)" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 8 8" enable-background="new 0 0 8 8"
+                    xml:space="preserve">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <rect x="0.016" y="1.68" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 6.2428 2.2389)"
+                            width="5.283" height="1.466"></rect>
+                        <rect x="3.161" y="1.604" width="1.683" height="6.375"></rect>
+                        <rect x="2.709" y="1.674" transform="matrix(0.7073 0.7069 -0.7069 0.7073 3.2674 -3.0786)"
+                            width="5.284" height="1.465"></rect>
+                    </g>
+                </svg>
             </button>
         </div>
         <p>© 2025 <%= hero.name %>
         </p>
     </footer>
     <script>
+        const pageLoader = document.querySelector("#page-loader");
         const body = document.querySelector("body");
         const heroName = document.querySelector("#authorName");
 
@@ -142,7 +160,7 @@
             body.setAttribute("data-color-scheme", storedColorScheme);
         }
 
-        const colorModeButton = document.querySelector("#colorModeButton");
+        const colorModeButton = document.querySelector("#color-mode-button");
         colorModeButton.addEventListener("click", handleColorModeChange);
         function handleColorModeChange() {
             storedColorScheme = localStorage.getItem("colorScheme");
@@ -153,6 +171,7 @@
 
         window.addEventListener("load", onPageLoad);
         function onPageLoad() {
+            //pageLoader.remove();
             heroName.style.textShadow = `2px 3px 0 ${getComputedStyle(body).getPropertyValue("--color-accent")}`;
             body.style.filter = "grayscale(0)";
         }
