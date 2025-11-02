@@ -267,7 +267,8 @@ body[data-color-scheme="light"] #color-mode-button-dark {
     border-bottom-right-radius: 10%;
     border-bottom-left-radius: 10%;
 
-    border-block: 3px solid var(--color-accent);
+    border-bottom: 3px solid var(--color-accent);
+    border-top: 2px solid var(--color-accent);
 }
 
 #about-image {
