@@ -14,32 +14,39 @@
     --grey: #f8f8f8;
     --dark-green: #0a2416;
     --red: #c25c5f;
+    --dark-red: #c25c5f;
     /* dark mode palette */
-    --dm-grey: #c2c2c2;
-    --dm-dark-green: #122319;
+    --dm-grey: #c8b9b9;
+    --dm-dark-green: #12231e;
     --dm-darker-green: #0d1912;
 
     --color-primary: var(--dark-green);
     --color-secondary: var(--grey);
     --color-accent: var(--red);
+    --color-accent-dark: var(--dark-red);
     --color-button: var(--red);
-    --color-footer: var(--color-primary);
+    --color-portrait-background: var(--dark-green);
+    --color-footer-bg: var(--color-primary);
+    --color-footer-text: var(--color-secondary);
+    --color-color-mode-icon: var(--dark-green);
 
     & body[data-color-scheme=""],
     & body[data-color-scheme="light"] {
         --color-primary: var(--dark-green);
         --color-secondary: var(--grey);
-        --color-accent: var(--red);
-        --color-button: var(--red);
-        --color-footer: var(--color-primary);
+        --color-portrait-background: var(--dark-green);
+        --color-footer-bg: var(--color-primary);
+        --color-footer-text: var(--color-secondary);
+        --color-color-mode-icon: var(--dark-green);
     }
 
     & body[data-color-scheme="dark"] {
         --color-primary: var(--dm-grey);
         --color-secondary: var(--dm-dark-green);
-        --color-accent: var(--red);
-        --color-button: var(--red);
-        --color-footer: var(--dm-darker-green);
+        --color-portrait-background: var(--dm-grey);
+        --color-footer-bg: var(--dm-darker-green);
+        --color-footer-text: var(--color-primary);
+        --color-color-mode-icon: var(--dm-grey);
     }
 
     /*2.986rem*/
@@ -103,6 +110,28 @@ a {
 
 button {
     font-size: var(--font-size-button);
+    cursor: pointer;
+}
+
+.button_standard {
+    padding: 8px 8px;
+    background-color: var(--color-button);
+    color: var(--color-secondary);
+    border: none;
+    border-radius: 5px;
+}
+
+.button_icon {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    opacity: .5;
+    transition: opacity .1s linear;
+}
+
+.button_icon:hover {
+    opacity: 1;
 }
 
 small {
@@ -132,19 +161,13 @@ li {
         "wdth" 100;
 }
 
-a,
-a:visited {
+a {
     color: var(--color-accent);
     font-weight: bold;
 }
 
-button {
-    padding: 8px 8px;
-    background-color: var(--color-button);
-    color: var(--color-secondary);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+a:visited {
+    color: var(--color-accent-dark);
 }
 
 section {
@@ -195,6 +218,9 @@ footer {
 
 #color-mode-button {}
 
+#color-mode-button-light,
+#color-mode-button-dark {}
+
 body[data-color-scheme="dark"] #color-mode-button-light {
     display: none;
 }
@@ -227,6 +253,30 @@ body[data-color-scheme="light"] #color-mode-button-dark {
 
 #about__title {}
 
+#about-flex-temp {}
+
+#about-image-wrapper {
+    width: 300px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    margin-inline: auto;
+    margin-bottom: 26px;
+    border-top-left-radius: 100% 70%;
+    border-top-right-radius: 100% 70%;
+    border-bottom-right-radius: 10%;
+    border-bottom-left-radius: 10%;
+
+    border-block: 3px solid var(--color-accent);
+}
+
+#about-image {
+    background-color: var(--color-portrait-background);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 #about__body {
     /* TODO: rethink this flex container*/
     display: flex;
@@ -253,8 +303,7 @@ body[data-color-scheme="light"] #color-mode-button-dark {
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
-    font-variation-settings:
-        "wdth" 100;
+    font-variation-settings: "wdth" 100;
     font-size: var(--font-size-a);
     margin-bottom: 4px;
 }
@@ -363,9 +412,16 @@ body[data-color-scheme="light"] #color-mode-button-dark {
     justify-content: space-between;
 }
 
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 footer {
-    background-color: var(--color-footer);
-    color: var(--color-secondary);
+    background-color: var(--color-footer-bg);
+    color: var(--color-footer-text);
 }
 
 #footer-top {
@@ -395,8 +451,8 @@ footer>p {
 }
 
 #back-to-top-button {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
 }
 
 
@@ -432,6 +488,19 @@ body[data-color-scheme="dark"] {
 
     footer {
         border-radius: 20px 20px 0px 0px;
+    }
+}
+
+@media screen and (width>=700px) {
+    #about-flex-temp {
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 3rem;
+    }
+
+    #about-image-wrapper {
+
+        flex: none;
     }
 }
 

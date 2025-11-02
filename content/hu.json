@@ -164,7 +164,8 @@
     },
     "footer": {
         "initials": "SM",
-        "backToTopButton": "vissza a tetejére"
+        "backToTopButton": "vissza a tetejére",
+        "bottomText": "Powered by Me"
     },
     "notFound": {},
     "error": {}
