@@ -136,6 +136,9 @@
         <h2>
             <%= contact.sectionTitle %>
         </h2>
+        <small id="contact-disclaimer">
+            <%= contact.disclaimer %>
+        </small>
         <div>
             <span class="contact-item">
                 <svg width="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -149,7 +152,8 @@
                             stroke-linecap="round"></rect>
                     </g>
                 </svg>
-                <p id="email-address">email</p>
+                <p id="email-address"></p>
+                <button class="button_icon" id="get-email-btn">get email</button>
             </span>
             <span class="contact-item">
                 <svg width="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -170,7 +174,8 @@
                             fill="var(--color-primary)"></path>
                     </g>
                 </svg>
-                <p id="linkedin-link">linkedin</p>
+                <a id="linkedin-link"></a>
+                <button class="button_icon" id="get-linkedin-btn">get linkedin</button>
             </span>
         </div>
     </section>
@@ -247,17 +252,27 @@
             element.children[1].innerHTML = icons[element.children[1].id];
         }
 
-        fetch("/email", {
-            "Content-Type": "application/json"
-        }).then(response => response.json())
-            .then(data => emailAddressParagraph.innerText = data.email)
-            .catch(err => console.log);
-
-        fetch("/linkedin", {
-            "Content-Type": "application/json"
-        }).then(response => response.json())
-            .then(data => linkedinLink.innerText = data.linkedin)
-            .catch(err => console.log);
+        const getEmaiButton = document.querySelector("#get-email-btn");
+        getEmaiButton.addEventListener("click", revealEmail);
+        function revealEmail() {
+            fetch("/email", {
+                "Content-Type": "application/json"
+            }).then(response => response.json())
+                .then(data => emailAddressParagraph.innerText = data.email)
+                .catch(err => console.log);
+            getEmaiButton.remove();
+        }
+        const getLinkedinButton = document.querySelector("#get-linkedin-btn");
+        getLinkedinButton.addEventListener("click", revealLinkedin);
+        function revealLinkedin() {
+            fetch("/linkedin", {
+                "Content-Type": "application/json"
+            }).then(response => response.json())
+                .then(data => linkedinLink.href = data.linkedin)
+                .catch(err => console.log);
+            linkedinLink.innerText = "linkedin";
+            getLinkedinButton.remove();
+        }
 
     </script>
 </body>

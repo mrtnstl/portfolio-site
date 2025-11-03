@@ -160,7 +160,8 @@
     "contact": {
         "sectionTitle": "Elérhetőségem",
         "email": "myemail@mail.mail",
-        "linkedin": "https://linkedin.com/myprofile"
+        "linkedin": "https://linkedin.com/myprofile",
+        "disclaimer": "Figyelem: In order to protect my personal contact from bots and the more obvious methods of webscraping, ..."
     },
     "footer": {
         "initials": "SM",

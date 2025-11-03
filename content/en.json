@@ -160,7 +160,8 @@
     "contact": {
         "sectionTitle": "Contact",
         "email": "myemail@mail.mail",
-        "linkedin": "https://linkedin.com/myprofile"
+        "linkedin": "https://linkedin.com/myprofile",
+        "disclaimer": "Disclaimer: In order to protect my personal contact from bots and the more obvious methods of webscraping, ..."
     },
     "footer": {
         "initials": "MS",
