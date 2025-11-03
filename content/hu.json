@@ -12,7 +12,10 @@
     },
     "about": {
         "sectionTitle": "Rólam",
-        "sectionBio": "Full-stack fejlesztő vagyok 2+ év webalkalmazás-fejlesztési tapasztalattal JavaScript-ökoszisztémában és 6+ év tapasztalattal rendszer adminisztrációban.",
+        "sectionBio": [
+            "Üdv! Spiteller Márton vagyok és full-stack fejlesztőként több mint 2 éves tapasztalattal rendelkezem webalkalmazások fejlesztésében a JavaScript-ökoszisztémában, valamint több mint 6 éves tapasztalattal rendszeradminisztráció területén.",
+            "Kiemelt szakmai fókuszterületeim közé tartozik üzletkritikus webszolgáltatások üzletfolytonosságának biztosítása, valamint komplex rendszerek tervezése és megvalósítása."
+        ],
         "toolsAndLanguages": [
             {
                 "name": "HTML",
@@ -160,8 +163,9 @@
     "contact": {
         "sectionTitle": "Elérhetőségem",
         "email": "myemail@mail.mail",
-        "linkedin": "https://linkedin.com/myprofile",
-        "disclaimer": "Figyelem: In order to protect my personal contact from bots and the more obvious methods of webscraping, ..."
+        "linkedin": "https://www.linkedin.com/in/m%C3%A1rton-spiteller-a068b0319/",
+        "disclaimer": "Figyelem: In order to protect my personal contact from bots and the more obvious methods of webscraping, ...",
+        "currentAvailability": "Jelenleg körülbelül heti 20 órányi szabad kapacitással rendelkezem. Ha van egy megvalósításra váró projektötleted, írj e-mailt vagy keress privát üzenetben!"
     },
     "footer": {
         "initials": "SM",

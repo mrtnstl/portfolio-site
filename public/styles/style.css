@@ -176,7 +176,7 @@ a:visited {
 section {
     flex: auto;
     /*margin-bottom was 50px previously*/
-    margin-bottom: 20px;
+    margin-bottom: 36px;
 }
 
 section:first-of-type,
@@ -274,11 +274,29 @@ body[data-color-scheme="light"] #color-mode-button-dark {
     border-top: 2px solid var(--color-accent);
 }
 
-#about-image {
+.about-image {
     background-color: var(--color-portrait-background);
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+#about-image {
+    display: block;
+}
+
+#about-image-onhover {
+    display: none;
+}
+
+#about-image-wrapper:hover {
+    #about-image {
+        display: none;
+    }
+
+    #about-image-onhover {
+        display: block;
+    }
 }
 
 #about__body {
@@ -425,10 +443,19 @@ body[data-color-scheme="light"] #color-mode-button-dark {
     margin-bottom: 28px;
 }
 
+#contact-item-container {
+    margin-bottom: 26px;
+}
+
 .contact-item {
     display: flex;
     align-items: center;
     gap: 8px;
+}
+
+.contact-item button {
+    color: var(--color-accent);
+
 }
 
 footer {
@@ -504,6 +531,10 @@ body[data-color-scheme="dark"] {
 }
 
 @media screen and (width>=700px) {
+    section {
+        margin-bottom: 40px;
+    }
+
     #about-flex-temp {
         display: flex;
         flex-direction: row-reverse;

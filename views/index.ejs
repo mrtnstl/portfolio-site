@@ -69,22 +69,30 @@
         </h2>
         <div id="about-flex-temp">
             <div id="about-image-wrapper">
-                <img id="about-image" src="/images/profile/profilepic_placeholder.png" alt="My Profile Picture">
+                <img class="about-image" id="about-image" src="/images/profile/profilepic_placeholder.png"
+                    alt="My Profile Picture">
+                <img class="about-image" id="about-image-onhover" src="/images/profile/profilepic_placeholder_hover.png"
+                    alt="My Profile Picture when you hover on it">
             </div>
             <div id="about__body">
-                <p>
-                    <%= about.sectionBio %>
-                </p>
-                <ul id="toolsAndLanguages__list">
-                    <% about.toolsAndLanguages.forEach(item=>{ %>
-                        <li class="about__item">
-                            <p class="about-item-name">
-                                <%= item.name %>
-                            </p>
-                            <span class="about-item__logo" id="<%=item.logo%>"></span>
-                        </li>
-                        <% }) %>
-                </ul>
+
+
+                <% for(let i=0; i < about.sectionBio.length; i++){ %>
+                    <p>
+                        <%=about.sectionBio[i] %>
+                    </p>
+                    <% } %>
+
+                        <ul id="toolsAndLanguages__list">
+                            <% about.toolsAndLanguages.forEach(item=>{ %>
+                                <li class="about__item">
+                                    <p class="about-item-name">
+                                        <%= item.name %>
+                                    </p>
+                                    <span class="about-item__logo" id="<%=item.logo%>"></span>
+                                </li>
+                                <% }) %>
+                        </ul>
             </div>
         </div>
         <button class="button_standard" id="hero-btn" onclick="scrollToSection('contact')">
@@ -139,7 +147,7 @@
         <small id="contact-disclaimer">
             <%= contact.disclaimer %>
         </small>
-        <div>
+        <div id="contact-item-container">
             <span class="contact-item">
                 <svg width="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -152,7 +160,7 @@
                             stroke-linecap="round"></rect>
                     </g>
                 </svg>
-                <p id="email-address"></p>
+                <a id="email-address"></a>
                 <button class="button_icon" id="get-email-btn">get email</button>
             </span>
             <span class="contact-item">
@@ -178,6 +186,9 @@
                 <button class="button_icon" id="get-linkedin-btn">get linkedin</button>
             </span>
         </div>
+        <p>
+            <%= contact.currentAvailability %>
+        </p>
     </section>
 
 
@@ -258,8 +269,15 @@
             fetch("/email", {
                 "Content-Type": "application/json"
             }).then(response => response.json())
-                .then(data => emailAddressParagraph.innerText = data.email)
-                .catch(err => console.log);
+                .then(data => {
+                    emailAddressParagraph.href = `mailto:${data.email}`;
+                    emailAddressParagraph.innerText = data.email;
+                })
+                .catch(err => {
+                    // console.log is only temp!!!
+                    console.log(err);
+                    emailAddressParagraph.innerText = "Error fetching email address!";
+                });
             getEmaiButton.remove();
         }
         const getLinkedinButton = document.querySelector("#get-linkedin-btn");
@@ -268,9 +286,15 @@
             fetch("/linkedin", {
                 "Content-Type": "application/json"
             }).then(response => response.json())
-                .then(data => linkedinLink.href = data.linkedin)
-                .catch(err => console.log);
-            linkedinLink.innerText = "linkedin";
+                .then(data => {
+                    linkedinLink.href = data.linkedin;
+                    linkedinLink.innerText = "linkedin";
+                })
+                .catch(err => {
+                    // console.log is only temp!!!
+                    console.log(err);
+                    linkedinLink.innerText = "Error fetching LinkedIn link!";
+                });
             getLinkedinButton.remove();
         }
 

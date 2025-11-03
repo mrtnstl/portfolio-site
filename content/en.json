@@ -12,7 +12,10 @@
     },
     "about": {
         "sectionTitle": "About Me",
-        "sectionBio": "I'm a full-stack developer based in Hungary, with 2+ years of experience developing webapplications within the JavaScript ecosystem and 6+ years of experience in system administration.",
+        "sectionBio": [
+            "Hi! I’m Márton Spiteller, a full-stack developer with over 2 years of experience in web application development within the JavaScript ecosystem, and more than 6 years of experience in system administration.",
+            "My key professional focus areas include ensuring the business continuity of mission-critical web services, as well as the design and implementation of complex systems."
+        ],
         "toolsAndLanguages": [
             {
                 "name": "HTML",
@@ -160,8 +163,9 @@
     "contact": {
         "sectionTitle": "Contact",
         "email": "myemail@mail.mail",
-        "linkedin": "https://linkedin.com/myprofile",
-        "disclaimer": "Disclaimer: In order to protect my personal contact from bots and the more obvious methods of webscraping, ..."
+        "linkedin": "https://www.linkedin.com/in/m%C3%A1rton-spiteller-a068b0319/",
+        "disclaimer": "Disclaimer: In order to protect my personal contact from bots and the more obvious methods of webscraping, ...",
+        "currentAvailability": "I currently have around 20 hours of available capacity per week. If you have a project idea you'd like to bring to life, feel free to reach out via email or send me a private message!"
     },
     "footer": {
         "initials": "MS",
