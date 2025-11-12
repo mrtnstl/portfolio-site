@@ -9,6 +9,7 @@ import enNotFoundContent from "./content/en/notFoundPage/content.json" with {typ
 import enNotFoundMeta from "./content/en/notFoundPage/meta.json" with {type: "json"};
 import enErrorContent from "./content/en/errorPage/content.json" with {type: "json"};
 import enErrorMeta from "./content/en/errorPage/meta.json" with {type: "json"};
+import enProjectRecipeApp from "./content/en/projects/recipesApp/content.json" with {type: "json"};
 
 // hungarian content
 import huFooterContent from "./content/hu/footer.json" with {type: "json"};
@@ -35,7 +36,7 @@ const contentDict = {
         notFound: { ...enNotFoundContent, ...enNotFoundMeta, ...enFooterContent },
         error: { ...enErrorContent, ...enErrorMeta, ...enFooterContent },
         project: {
-            recipeApp: {},
+            ["recipe-app"]: { ...enIndexMeta, ...enProjectRecipeApp, ...enFooterContent },
             sqliteAdmin: {}
         }
     },
@@ -97,6 +98,15 @@ app.get("/",
 app.get("/:lang",
     getLangFromRouteMW(objectRepo),
     renderMW(objectRepo, "index"));
+app.get("/:lang/:projectName",
+    getLangFromRouteMW(objectRepo),
+    (req, res, next) => {
+        const projectName = req.params.projectName;
+        res.locals.selectedProjectName = projectName;
+        console.log(res.locals.selectedProjectName, projectName)
+        return next();
+    },
+    renderMW(objectRepo, "project"));
 
 // wildcard route
 app.use(

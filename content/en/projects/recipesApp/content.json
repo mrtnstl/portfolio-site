@@ -1,0 +1,33 @@
+{
+    "content": [
+        {
+            "type": "h1",
+            "content": "Recipes and Shopping Lists Webapp"
+        },
+        {
+            "type": "small",
+            "content": "11.12.2025."
+        },
+        {
+            "type": "p",
+            "content": "Short intro"
+        },
+        {
+            "type": "h2",
+            "content": "Technologies used"
+        },
+        {
+            "type": "list",
+            "array": [
+                "React",
+                "Nodejs",
+                "PostgreSQL",
+                "Redis"
+            ]
+        },
+        {
+            "type": "p",
+            "content": "Longer description"
+        }
+    ]
+}
