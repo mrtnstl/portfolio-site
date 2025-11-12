@@ -1,6 +1,7 @@
 {
     "htmlHead": {
         "lang": "hu",
-        "title": "Portfólió"
+        "title": "Portfólió",
+        "cssFileName": "index"
     }
 }

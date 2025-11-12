@@ -5,11 +5,19 @@ import helmet from "helmet";
 import enFooterContent from "./content/en/footer.json" with {type: "json"};
 import enIndexMeta from "./content/en/indexPage/meta.json" with {type: "json"};
 import enIndexContent from "./content/en/indexPage/content.json" with {type: "json"};
+import enNotFoundContent from "./content/en/notFoundPage/content.json" with {type: "json"};
+import enNotFoundMeta from "./content/en/notFoundPage/meta.json" with {type: "json"};
+import enErrorContent from "./content/en/errorPage/content.json" with {type: "json"};
+import enErrorMeta from "./content/en/errorPage/meta.json" with {type: "json"};
 
 // hungarian content
 import huFooterContent from "./content/hu/footer.json" with {type: "json"};
 import huIndexMeta from "./content/hu/indexPage/meta.json" with {type: "json"};
 import huIndexContent from "./content/hu/indexPage/content.json" with {type: "json"};
+import huNotFoundContent from "./content/hu/notFoundPage/content.json" with {type: "json"};
+import huNotFoundMeta from "./content/hu/notFoundPage/meta.json" with {type: "json"};
+import huErrorContent from "./content/hu/errorPage/content.json" with {type: "json"};
+import huErrorMeta from "./content/hu/errorPage/meta.json" with {type: "json"};
 
 // middleware
 import selectLangMW from "./middleware/selectLangMW.js";
@@ -24,13 +32,21 @@ const PORT = process.env.PORT || 3001;
 const contentDict = {
     en: {
         index: { ...enIndexContent, ...enIndexMeta, ...enFooterContent },
-        notFound: {},
-        error: {}
+        notFound: { ...enNotFoundContent, ...enNotFoundMeta, ...enFooterContent },
+        error: { ...enErrorContent, ...enErrorMeta, ...enFooterContent },
+        project: {
+            recipeApp: {},
+            sqliteAdmin: {}
+        }
     },
     hu: {
         index: { ...huIndexContent, ...huIndexMeta, ...huFooterContent },
-        notFound: {},
-        error: {}
+        notFound: { ...huNotFoundContent, ...huNotFoundMeta, ...huFooterContent },
+        error: { ...huErrorContent, ...huErrorMeta, ...huFooterContent },
+        project: {
+            recipeApp: {},
+            sqliteAdmin: {}
+        }
     }
 };
 const hitCounter = {
