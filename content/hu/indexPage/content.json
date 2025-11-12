@@ -1,20 +1,15 @@
 {
-    "lang": "en",
-    "htmlHead": {
-        "lang": "en",
-        "title": "personal"
-    },
     "hero": {
-        "name": "Márton Spiteller",
-        "title": "Full-stack Developer",
+        "name": "Spiteller Márton",
+        "title": "Full-stack Fejlesztő",
         "tagLine": "",
-        "cta": "contact"
+        "cta": "elérhetőségem"
     },
     "about": {
-        "sectionTitle": "About Me",
+        "sectionTitle": "Rólam",
         "sectionBio": [
-            "Hi! I’m Márton Spiteller, a full-stack developer with over 2 years of experience in web application development within the JavaScript ecosystem, and more than 6 years of experience in system administration.",
-            "My key professional focus areas include ensuring the business continuity of mission-critical web services, as well as the design and implementation of complex systems."
+            "Üdv! Spiteller Márton vagyok és full-stack fejlesztőként több mint 2 éves tapasztalattal rendelkezem webalkalmazások fejlesztésében a JavaScript-ökoszisztémában, valamint több mint 6 éves tapasztalattal rendszeradminisztráció területén.",
+            "Kiemelt szakmai fókuszterületeim közé tartozik üzletkritikus webszolgáltatások rendelkezésreállásának biztosítása, valamint komplex rendszerek tervezése és megvalósítása."
         ],
         "toolsAndLanguages": [
             {
@@ -56,12 +51,12 @@
         ]
     },
     "projects": {
-        "sectionTitle": "My Projects",
+        "sectionTitle": "Projektjeim",
         "projects": [
             {
                 "isPublic": true,
                 "name": "recipes-and-shopping-lists",
-                "description": "Webapplication, where users can manage recipes and generate shopping lists based on a recipe in relation to their fridges content.",
+                "description": "Webalkalmazás, amiben a felhasználók létrehozhatnak recepteket és bevásárló listát generálhatnak egy recept alapján, a hűtőszekrényük tartalmának figyelembevételével.",
                 "stack": [
                     {
                         "name": "JavaScript",
@@ -86,7 +81,7 @@
                 ],
                 "link": {
                     "url": "link:/to.site",
-                    "text": "application"
+                    "text": "alkalmazás"
                 },
                 "github": {
                     "url": "link:/to.repo",
@@ -118,7 +113,7 @@
                 ],
                 "link": {
                     "url": "link:/to.site",
-                    "text": "application"
+                    "text": "alkalmazás"
                 },
                 "github": {
                     "url": "link:/to.repo",
@@ -133,7 +128,7 @@
             {
                 "isPublic": true,
                 "name": "sqlite-db-manager",
-                "description": "Desktop application, designed to provide a clean and intuitive way to handle SQLite databases.",
+                "description": "Asztali alkalmazás, SQLite adatbázisok letisztult és gördülékeny kezelésére.",
                 "stack": [
                     {
                         "name": "Java",
@@ -146,7 +141,7 @@
                 ],
                 "link": {
                     "url": "link:/to.site",
-                    "text": "application"
+                    "text": "alkalmazás"
                 },
                 "github": {
                     "url": "link:/to.repo",
@@ -161,17 +156,10 @@
         ]
     },
     "contact": {
-        "sectionTitle": "Contact",
+        "sectionTitle": "Elérhetőségem",
         "email": "myemail@mail.mail",
         "linkedin": "https://www.linkedin.com/in/m%C3%A1rton-spiteller-a068b0319/",
-        "disclaimer": "Disclaimer: In order to protect my personal contact from bots and the more obvious methods of webscraping, ...",
-        "currentAvailability": "I currently have around 20 hours of available capacity per week. If you have a project idea you'd like to bring to life, feel free to reach out via email or send me a private message!"
-    },
-    "footer": {
-        "initials": "MS",
-        "backToTopButton": "back to the top",
-        "bottomText": "Powered by Me"
-    },
-    "notFound": {},
-    "error": {}
+        "disclaimer": "Figyelem: In order to protect my personal contact from bots and the more obvious methods of webscraping, ...",
+        "currentAvailability": "Jelenleg körülbelül heti 20 órányi szabad kapacitással rendelkezem. Ha van egy megvalósításra váró projektötleted, írj e-mailt vagy keress privát üzenetben!"
+    }
 }
