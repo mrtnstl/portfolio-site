@@ -1,7 +1,13 @@
 {
+    "hero": {
+        "name": "Márton Spiteller",
+        "title": "Full-stack Developer",
+        "tagLine": "",
+        "cta": "contact"
+    },
     "content": [
         {
-            "type": "h1",
+            "type": "h2",
             "content": "Recipes and Shopping Lists Webapp"
         },
         {
@@ -13,7 +19,7 @@
             "content": "Short intro"
         },
         {
-            "type": "h2",
+            "type": "h3",
             "content": "Technologies used"
         },
         {
@@ -27,7 +33,7 @@
         },
         {
             "type": "p",
-            "content": "Longer description"
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus bibendum orci sit amet eros sodales rutrum. Aliquam at elementum massa. Suspendisse nec leo arcu. Aenean nunc lacus, ullamcorper eget semper nec, tempor eu velit. In fermentum dolor sed felis volutpat, non dignissim quam commodo. Maecenas accumsan pretium viverra. Nulla sollicitudin euismod egestas. Nam bibendum turpis sed justo semper ultricies. Maecenas congue iaculis nisi vitae efficitur. Etiam pretium ipsum a aliquet molestie. Quisque at lacus id mi sodales auctor. Nullam ut condimentum odio, in congue nulla. Donec ornare enim neque, nec efficitur orci lacinia vitae. Suspendisse mollis gravida est, at interdum nibh mattis ac. Sed efficitur sollicitudin massa at condimentum. Duis pellentesque tempus facilisis."
         }
     ]
 }

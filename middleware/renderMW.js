@@ -4,7 +4,7 @@ export default (objectRepo, page) => {
         // TODO: modify this to fit dynamic "project" pages
         if (res.locals.selectedProjectName) {
 
-            res.render(page, contentDict.en.project[res.locals.selectedProjectName]);
+            res.render(page, contentDict[res.locals.preferredLang].project[res.locals.selectedProjectName] || contentDict.en.project[res.locals.selectedProjectName]);
             return res.locals.selectedProjectName = null;
 
         }

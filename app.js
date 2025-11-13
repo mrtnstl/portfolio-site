@@ -10,6 +10,7 @@ import enNotFoundMeta from "./content/en/notFoundPage/meta.json" with {type: "js
 import enErrorContent from "./content/en/errorPage/content.json" with {type: "json"};
 import enErrorMeta from "./content/en/errorPage/meta.json" with {type: "json"};
 import enProjectRecipeApp from "./content/en/projects/recipesApp/content.json" with {type: "json"};
+import enProjectRecipeAppMeta from "./content/en/projects/recipesApp/meta.json" with {type: "json"};
 
 // hungarian content
 import huFooterContent from "./content/hu/footer.json" with {type: "json"};
@@ -19,6 +20,8 @@ import huNotFoundContent from "./content/hu/notFoundPage/content.json" with {typ
 import huNotFoundMeta from "./content/hu/notFoundPage/meta.json" with {type: "json"};
 import huErrorContent from "./content/hu/errorPage/content.json" with {type: "json"};
 import huErrorMeta from "./content/hu/errorPage/meta.json" with {type: "json"};
+import huProjectRecipeApp from "./content/hu/projects/recipesApp/content.json" with {type: "json"};
+import huProjectRecipeAppMeta from "./content/hu/projects/recipesApp/meta.json" with {type: "json"};
 
 // middleware
 import selectLangMW from "./middleware/selectLangMW.js";
@@ -36,7 +39,7 @@ const contentDict = {
         notFound: { ...enNotFoundContent, ...enNotFoundMeta, ...enFooterContent },
         error: { ...enErrorContent, ...enErrorMeta, ...enFooterContent },
         project: {
-            ["recipe-app"]: { ...enIndexMeta, ...enProjectRecipeApp, ...enFooterContent },
+            ["recipe-app"]: { ...enProjectRecipeAppMeta, ...enProjectRecipeApp, ...enFooterContent },
             sqliteAdmin: {}
         }
     },
@@ -45,7 +48,7 @@ const contentDict = {
         notFound: { ...huNotFoundContent, ...huNotFoundMeta, ...huFooterContent },
         error: { ...huErrorContent, ...huErrorMeta, ...huFooterContent },
         project: {
-            recipeApp: {},
+            ["recipe-app"]: { ...huProjectRecipeAppMeta, ...huProjectRecipeApp, ...huFooterContent },
             sqliteAdmin: {}
         }
     }
@@ -98,7 +101,7 @@ app.get("/",
 app.get("/:lang",
     getLangFromRouteMW(objectRepo),
     renderMW(objectRepo, "index"));
-app.get("/:lang/:projectName",
+app.get("/:lang/projects/:projectName",
     getLangFromRouteMW(objectRepo),
     (req, res, next) => {
         const projectName = req.params.projectName;

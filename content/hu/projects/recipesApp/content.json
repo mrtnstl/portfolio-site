@@ -1,0 +1,39 @@
+{
+    "hero": {
+        "name": "Spiteller Márton",
+        "title": "Full-stack Fejlesztő",
+        "tagLine": "",
+        "cta": "elérhetőségem"
+    },
+    "content": [
+        {
+            "type": "h2",
+            "content": "Recipes and Shopping Lists Webapp"
+        },
+        {
+            "type": "small",
+            "content": "2025.11.12."
+        },
+        {
+            "type": "p",
+            "content": "Rövid bevezető"
+        },
+        {
+            "type": "h3",
+            "content": "Alkalmazott technológiák"
+        },
+        {
+            "type": "list",
+            "array": [
+                "React",
+                "Nodejs",
+                "PostgreSQL",
+                "Redis"
+            ]
+        },
+        {
+            "type": "p",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus bibendum orci sit amet eros sodales rutrum. Aliquam at elementum massa. Suspendisse nec leo arcu. Aenean nunc lacus, ullamcorper eget semper nec, tempor eu velit. In fermentum dolor sed felis volutpat, non dignissim quam commodo. Maecenas accumsan pretium viverra. Nulla sollicitudin euismod egestas. Nam bibendum turpis sed justo semper ultricies. Maecenas congue iaculis nisi vitae efficitur. Etiam pretium ipsum a aliquet molestie. Quisque at lacus id mi sodales auctor. Nullam ut condimentum odio, in congue nulla. Donec ornare enim neque, nec efficitur orci lacinia vitae. Suspendisse mollis gravida est, at interdum nibh mattis ac. Sed efficitur sollicitudin massa at condimentum. Duis pellentesque tempus facilisis."
+        }
+    ]
+}
