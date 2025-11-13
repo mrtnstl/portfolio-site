@@ -181,7 +181,8 @@ section {
 
 section:first-of-type,
 footer {
-    flex: 1;
+    /*TODO: check if this is needed!!!*/
+    /*flex: 1;*/
 }
 
 section,

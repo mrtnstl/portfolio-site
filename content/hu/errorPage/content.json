@@ -1,4 +1,10 @@
 {
+    "hero": {
+        "name": "Spiteller Márton",
+        "title": "Full-stack Fejlesztő",
+        "tagLine": "",
+        "cta": "elérhetőségem"
+    },
     "title": "Hiba Lépett Fel",
     "backToHome": "vissza a kezdőlapra"
 }

@@ -1,4 +1,10 @@
 {
+    "hero": {
+        "name": "Márton Spiteller",
+        "title": "Full-stack Developer",
+        "tagLine": "",
+        "cta": "contact"
+    },
     "title": "An Error Occured",
     "backToHome": "back to home page"
 }
