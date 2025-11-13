@@ -5,8 +5,8 @@
                 <%= footer.initials %>
             </h1>
             <div>
-                <a href="/en">en</a>
-                <a href="/hu">hu</a>
+                <a class="lang-link" href="/en">en</a>
+                <a class="lang-link" href="/hu">hu</a>
             </div>
         </div>
         <button class="button_icon" id="back-to-top-button" onclick="scrollToSection('hero')"
@@ -57,6 +57,13 @@
         //pageLoader.remove();
         heroName.style.textShadow = `2px 3px 0 ${getComputedStyle(body).getPropertyValue("--color-accent")}`;
         body.style.filter = "grayscale(0)";
+
+        const langLinks = document.querySelectorAll(".lang-link").forEach((link)=>{    
+            const urlPath = window.location.pathname.split("/");
+            urlPath[1] = link.getAttribute("href").split("/")[1];
+            const target = `${window.location.origin}${urlPath.join("/")}`;
+            link.setAttribute("href", target);
+        });
     }
 
     function scrollToSection(section) {
@@ -64,47 +71,52 @@
         sectionElement.scrollIntoView({ behavior: "smooth" });
     }
 
-    const aboutListItems = document.getElementsByClassName("about__item");
-    for (const element of aboutListItems) {
-        element.children[1].innerHTML = icons[element.children[1].id];
-    }
+    const path = window.location.pathname.split("/");
+    path[path.length-1] === "" ? path.pop() : null;
 
-    const getEmaiButton = document.querySelector("#get-email-btn");
-    getEmaiButton.addEventListener("click", revealEmail);
-    function revealEmail() {
-        fetch("/email", {
-            "Content-Type": "application/json"
-        }).then(response => response.json())
-            .then(data => {
-                emailAddressParagraph.href = `mailto:${data.email}`;
-                emailAddressParagraph.innerText = data.email;
-            })
-            .catch(err => {
-                // console.log is only temp!!!
-                console.log(err);
-                emailAddressParagraph.innerText = "Error fetching email address!";
-            });
-        getEmaiButton.remove();
-    }
-    const getLinkedinButton = document.querySelector("#get-linkedin-btn");
-    getLinkedinButton.addEventListener("click", revealLinkedin);
-    function revealLinkedin() {
-        fetch("/linkedin", {
-            "Content-Type": "application/json"
-        }).then(response => response.json())
-            .then(data => {
-                linkedinLink.href = data.linkedin;
-                linkedinLink.innerText = "linkedin";
-            })
-            .catch(err => {
-                // console.log is only temp!!!
-                console.log(err);
-                linkedinLink.innerText = "Error fetching LinkedIn link!";
-            });
-        getLinkedinButton.remove();
-    }
+    if(path.length <= 2){
+        console.log(window.location.pathname.split("/").length)
+        const aboutListItems = document.getElementsByClassName("about__item");
+        for (const element of aboutListItems) {
+            element.children[1].innerHTML = icons[element.children[1].id];
+        }
 
+        const getEmaiButton = document.querySelector("#get-email-btn");
+        getEmaiButton.addEventListener("click", revealEmail);
+        function revealEmail() {
+            fetch("/email", {
+                "Content-Type": "application/json"
+            }).then(response => response.json())
+                .then(data => {
+                    emailAddressParagraph.href = `mailto:${data.email}`;
+                    emailAddressParagraph.innerText = data.email;
+                })
+                .catch(err => {
+                    // console.log is only temp!!!
+                    console.log(err);
+                    emailAddressParagraph.innerText = "Error fetching email address!";
+                });
+            getEmaiButton.remove();
+        }
+
+        const getLinkedinButton = document.querySelector("#get-linkedin-btn");
+        getLinkedinButton.addEventListener("click", revealLinkedin);
+        function revealLinkedin() {
+            fetch("/linkedin", {
+                "Content-Type": "application/json"
+            }).then(response => response.json())
+                .then(data => {
+                    linkedinLink.href = data.linkedin;
+                    linkedinLink.innerText = "linkedin";
+                })
+                .catch(err => {
+                    // console.log is only temp!!!
+                    console.log(err);
+                    linkedinLink.innerText = "Error fetching LinkedIn link!";
+                });
+            getLinkedinButton.remove();
+        }
+    }
 </script>
 </body>
-
 </html>
