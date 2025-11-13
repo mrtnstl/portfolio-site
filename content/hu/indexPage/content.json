@@ -54,6 +54,7 @@
         "sectionTitle": "Projektjeim",
         "projects": [
             {
+                "pageName": "recipe-app",
                 "isPublic": true,
                 "name": "recipes-and-shopping-lists",
                 "description": "Webalkalmazás, amiben a felhasználók létrehozhatnak recepteket és bevásárló listát generálhatnak egy recept alapján, a hűtőszekrényük tartalmának figyelembevételével.",
@@ -94,6 +95,7 @@
                 ]
             },
             {
+                "pageName": "notification-service",
                 "isPublic": false,
                 "name": "notification-service",
                 "description": "what is does / what problem it solves",
@@ -126,6 +128,7 @@
                 ]
             },
             {
+                "pageName": "sqlite-admin",
                 "isPublic": true,
                 "name": "sqlite-db-manager",
                 "description": "Asztali alkalmazás, SQLite adatbázisok letisztult és gördülékeny kezelésére.",

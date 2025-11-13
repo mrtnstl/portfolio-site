@@ -85,9 +85,11 @@
         <% projects.projects.forEach(project=>{ %>
             <% if(project.isPublic){ %>
                 <div class="project__card">
-                    <h3 class="project-card-title">
-                        <%= project.name %>
-                    </h3>
+                        <a href="/lang/projects/<%=project.pageName%>">
+                            <h3 class="project-card-title">
+                                <%= project.name %>
+                            </h3>
+                        </a>
                     <p class="project-card-description">
                         <%= project.description %>
                     </p>
