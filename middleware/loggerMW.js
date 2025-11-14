@@ -1,6 +1,6 @@
 export default (objectRepo) => {
     const { dbClient, isDbAlive } = objectRepo;
-    return async (req, res, next) => {
+    return (req, res, next) => {
 
         const timestamp = new Date().toISOString();
         const method = req.method;
@@ -17,7 +17,7 @@ export default (objectRepo) => {
         //console.log(accessLogRecord);
         if (isDbAlive) {
             try {
-                await dbClient.query("INSERT INTO portfolio_access_logs(app_timestamp, method, path, user_agent, user_ip, user_pref_lang) VALUES ($1, $2, $3, $4, $5, $6);", [timestamp, method, path, userAgent, userIp, userPrefLang]);
+                dbClient.query("INSERT INTO portfolio_access_logs(app_timestamp, method, path, user_agent, user_ip, user_pref_lang) VALUES ($1, $2, $3, $4, $5, $6);", [timestamp, method, path, userAgent, userIp, userPrefLang]);
             } catch (err) {
                 // TODO: handle db error
                 console.log("DB ERR:", err);

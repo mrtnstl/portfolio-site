@@ -3,6 +3,7 @@ import helmet from "helmet";
 
 import { initDb } from "./services/databaseConn.js";
 import { initRoutes } from "./routes/index.js";
+import { getAccessStats } from "./utils/getAccessStats.js";
 
 const PORT = process.env.PORT || 3001;
 
@@ -33,6 +34,9 @@ initDb((err, { dbClient, isDbAlive }) => {
 
     console.log("IS_DB_ALIVE", isDbAlive); // TODO: delete after mechanism is stable
     initRoutes(app, dbClient, isDbAlive);
+
+    // TODO: this should be ran by a worker alongside with the email notification service
+    getAccessStats(dbClient);
 
     const server = app.listen(PORT, () => {
         console.log(`[${new Date().toISOString()}]\tApp is listening on port ${PORT}`);
