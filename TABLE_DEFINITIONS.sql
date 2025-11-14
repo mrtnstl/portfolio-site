@@ -1,0 +1,10 @@
+ CREATE TABLE IF NOT EXISTS portfolio_access_logs (
+     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+     method VARCHAR DEFAULT NULL,
+     path VARCHAR DEFAULT NULL,
+     user_agent TEXT DEFAULT NULL,
+     user_ip VARCHAR DEFAULT NULL,
+     user_pref_lang VARCHAR DEFAULT NULL,
+     app_timestamp TIMESTAMPTZ DEFAULT NULL,
+     created_at TIMESTAMPTZ DEFAULT NOW()
+);
