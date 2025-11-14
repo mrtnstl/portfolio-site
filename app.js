@@ -1,5 +1,6 @@
 import express from "express";
 import helmet from "helmet";
+import { Client } from "pg";
 
 // english content
 import enFooterContent from "./content/en/footer.json" with {type: "json"};
@@ -27,9 +28,23 @@ import huProjectRecipeAppMeta from "./content/hu/projects/recipesApp/meta.json" 
 import selectLangMW from "./middleware/selectLangMW.js";
 import renderMW from "./middleware/renderMW.js";
 import getLangFromRouteMW from "./middleware/getLangFromRouteMW.js";
-import getEmailMW from "./middleware/getEmailMW.js";
-import getLinkedinMW from "./middleware/getLinkedinMW.js";
+import getContactMW from "./middleware/getContactMW.js";
 import loggerMW from "./middleware/loggerMW.js";
+
+const connectionString = process.env.DATABASE_URL;
+let isDbAlive;
+const dbClient = new Client({ connectionString });
+(async () => {
+    try {
+        await dbClient.connect();
+        const dbVersion = await dbClient.query("SELECT version()");
+        isDbAlive = dbVersion.rows[0].version ? true : false;
+    } catch (err) {
+        console.log(err)
+        isDbAlive = false;
+    }
+    console.log("database state", isDbAlive) // TODO: delete this line after implementing logging
+})();
 
 const PORT = process.env.PORT || 3001;
 
@@ -53,13 +68,8 @@ const contentDict = {
         }
     }
 };
-const hitCounter = {
-    website: 0,
-    email: 0,
-    linkedin: 0,
-    languages: {}
-};
-const objectRepo = { contentDict, hitCounter };
+
+const objectRepo = { contentDict, dbClient };
 
 const app = express();
 
@@ -90,10 +100,8 @@ app.use(selectLangMW(objectRepo));
 app.use(loggerMW(objectRepo));
 
 // api
-app.get("/email",
-    getEmailMW(objectRepo));
-app.get("/linkedin",
-    getLinkedinMW(objectRepo));
+app.get("/contact",
+    getContactMW(objectRepo));
 
 // pages
 app.get("/",
@@ -130,7 +138,7 @@ const server = app.listen(PORT, () => {
 function cleanupAndShutdown(signal) {
     console.log(`[${new Date().toISOString()}]\t${signal} signal recieved! Initiating cleanup and shutdown!`);
     server.close(async () => {
-        console.log(`[${new Date().toISOString()}]\tServer closed!\t${JSON.stringify(hitCounter)}`);
+        console.log(`[${new Date().toISOString()}]\tServer closed!`);
         process.exit(0);
     });
     setTimeout(() => {

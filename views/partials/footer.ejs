@@ -75,47 +75,28 @@
     path[path.length-1] === "" ? path.pop() : null;
 
     if(path.length <= 2){
-        console.log(window.location.pathname.split("/").length)
         const aboutListItems = document.getElementsByClassName("about__item");
         for (const element of aboutListItems) {
             element.children[1].innerHTML = icons[element.children[1].id];
         }
 
-        const getEmaiButton = document.querySelector("#get-email-btn");
-        getEmaiButton.addEventListener("click", revealEmail);
-        function revealEmail() {
-            fetch("/email", {
+        const getContactButton = document.querySelector("#get-contact-button");
+        const contactFetchErrorPara = document.querySelector("#contact-fetch-error-para");
+        getContactButton.addEventListener("click",()=>{
+            fetch("/contact",{
                 "Content-Type": "application/json"
-            }).then(response => response.json())
-                .then(data => {
-                    emailAddressParagraph.href = `mailto:${data.email}`;
-                    emailAddressParagraph.innerText = data.email;
-                })
-                .catch(err => {
-                    // console.log is only temp!!!
-                    console.log(err);
-                    emailAddressParagraph.innerText = "Error fetching email address!";
-                });
-            getEmaiButton.remove();
-        }
-
-        const getLinkedinButton = document.querySelector("#get-linkedin-btn");
-        getLinkedinButton.addEventListener("click", revealLinkedin);
-        function revealLinkedin() {
-            fetch("/linkedin", {
-                "Content-Type": "application/json"
-            }).then(response => response.json())
-                .then(data => {
-                    linkedinLink.href = data.linkedin;
-                    linkedinLink.innerText = "linkedin";
-                })
-                .catch(err => {
-                    // console.log is only temp!!!
-                    console.log(err);
-                    linkedinLink.innerText = "Error fetching LinkedIn link!";
-                });
-            getLinkedinButton.remove();
-        }
+            })
+            .then(data=>data.json())
+            .then(contact=>{
+                emailAddressParagraph.href = `mailto:${contact.email}`;
+                emailAddressParagraph.innerText = contact.email;
+                linkedinLink.href = contact.linkedin;
+                linkedinLink.innerText = "linkedin";
+            })
+            .catch(err=>{
+                contactFetchErrorPara.innerText = err.message;
+            });
+        });
     }
 </script>
 </body>
